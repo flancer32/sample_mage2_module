@@ -22,6 +22,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/flancer32/sample_mage2_module"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/flancer64/magento-composer-installer"
     }
   ],
   "require": {
