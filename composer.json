@@ -2,13 +2,14 @@
   "name": "flancer32/sample_mage2_module",
   "description": "Magento 2 module sample (with development environment).",
   "require": {
-    "magento/framework": "~1.0.0"
+    "magento/framework": "~1.0.0",
+    "magento/magento-composer-installer": "*"
   },
   "type": "magento2-module",
   "extra": {
     "map": [
       [
-        "src/*",
+        "src",
         "Flancer32/Sample"
       ]
     ]
