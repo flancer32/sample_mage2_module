@@ -1,0 +1,24 @@
+{
+  "name": "flancer32/sample_mage2_module",
+  "description": "Magento 2 module sample (with development environment).",
+  "require": {
+    "magento/framework": "0.1.*"
+  },
+  "type": "magento2-module",
+  "version": "0.1.0",
+  "extra": {
+    "map": [
+      [
+        "src/*",
+        "Flancer32/Sample"
+      ]
+    ]
+  },
+  "authors": [
+    {
+      "name": "Alex Gusev",
+      "email": "flancer64@gmail.com",
+      "role": "Developer"
+    }
+  ]
+}

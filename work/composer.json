@@ -1,0 +1,41 @@
+{
+  "name": "flancer32/sample_mage2_module_development",
+  "description": "Development environment for Magento 2 sample module.",
+  "type": "project",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Alex Gusev",
+      "email": "flancer64@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.magento.com/"
+    },
+    {
+      "type": "composer",
+      "url": "http://packages.firegento.com"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/flancer32/sample_mage2_module"
+    }
+  ],
+  "require": {
+    "magento/magento-composer-installer": "*",
+    "magento-hackathon/composer-command-integrator": "*",
+    "praxigento/composer_plugin_templates": "^1.0",
+    "magento/product-community-edition": "1.0.0-beta",
+    "flancer32/sample_mage2_module": "dev-master"
+  },
+  "extra": {
+    "magento-root-dir": "mage",
+    "magento-deploystrategy": "copy",
+    "magento-force": true,
+    "auto-append-gitignore": false
+  },
+  "minimum-stability": "alpha"
+}
