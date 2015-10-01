@@ -29,11 +29,33 @@
     }
   ],
   "require": {
-    "magento/magento-composer-installer": "*",
+    "magento/magento-composer-installer": "dev-patch-1",
     "magento-hackathon/composer-command-integrator": "1.0",
     "praxigento/composer_plugin_templates": "^1.0",
     "magento/product-community-edition": "1.0.0-beta",
     "flancer32/sample_mage2_module": "dev-master"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.1.0",
+    "squizlabs/php_codesniffer": "1.5.3",
+    "phpmd/phpmd": "@stable",
+    "pdepend/pdepend": "2.0.6",
+    "lib-libxml": "*",
+    "ext-ctype": "*",
+    "ext-gd": "*",
+    "ext-spl": "*",
+    "ext-dom": "*",
+    "ext-simplexml": "*",
+    "ext-mcrypt": "*",
+    "ext-hash": "*",
+    "ext-curl": "*",
+    "ext-iconv": "*",
+    "ext-intl": "*",
+    "ext-xsl": "*",
+    "ext-mbstring": "*",
+    "sjparkinson/static-review": "~4.1",
+    "fabpot/php-cs-fixer": "~1.2",
+    "lusitanian/oauth": "~0.3"
   },
   "extra": {
     "magento-root-dir": "htdocs",
@@ -47,8 +69,27 @@
   "scripts": {
     "pre-install-cmd": [
       "# Create root directory for the development Magento instance.",
-      "# mkdir htdocs"
+      "mkdir htdocs"
     ]
   },
-  "minimum-stability": "alpha"
+  "config": {
+    "use-include-path": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Magento\\Framework\\": "htdocs/lib/internal/Magento/Framework/",
+      "Magento\\Setup\\": "htdocs/setup/src/Magento/Setup/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Magento\\Sniffs\\": "htdocs/dev/tests/static/framework/Magento/Sniffs/",
+      "Magento\\Tools\\": "htdocs/dev/tools/Magento/Tools/",
+      "Magento\\Tools\\Sanity\\": "htdocs/dev/build/publication/sanity/Magento/Tools/Sanity/",
+      "Magento\\TestFramework\\Inspection\\": "htdocs/dev/tests/static/framework/Magento/TestFramework/Inspection/",
+      "Magento\\TestFramework\\Utility\\": "htdocs/dev/tests/static/framework/Magento/TestFramework/Utility/"
+    }
+  },
+  "minimum-stability": "alpha",
+  "prefer-stable": true
 }
