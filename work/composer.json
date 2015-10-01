@@ -26,7 +26,7 @@
   ],
   "require": {
     "magento/magento-composer-installer": "*",
-    "magento-hackathon/composer-command-integrator": "*",
+    "magento-hackathon/composer-command-integrator": "1.0",
     "praxigento/composer_plugin_templates": "^1.0",
     "magento/product-community-edition": "1.0.0-beta",
     "flancer32/sample_mage2_module": "dev-master"
@@ -42,7 +42,8 @@
   },
   "scripts": {
     "pre-install-cmd": [
-      "echo \"Create root directory for the development Magento instance:\" ; mkdir htdocs ;"
+      "# Create root directory for the development Magento instance.",
+      "# mkdir htdocs"
     ]
   },
   "minimum-stability": "alpha"
