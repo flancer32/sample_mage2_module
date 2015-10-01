@@ -32,10 +32,18 @@
     "flancer32/sample_mage2_module": "dev-master"
   },
   "extra": {
-    "magento-root-dir": "mage",
+    "magento-root-dir": "htdocs",
     "magento-deploystrategy": "copy",
+    "magento-deploystrategy-overwrite": {
+      "flancer32/sample_mage2_module": "symlink"
+    },
     "magento-force": true,
     "auto-append-gitignore": false
+  },
+  "scripts": {
+    "pre-install-cmd": [
+      "echo \"Create root directory for the development Magento instance:\" ; mkdir htdocs ;"
+    ]
   },
   "minimum-stability": "alpha"
 }
