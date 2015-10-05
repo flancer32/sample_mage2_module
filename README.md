@@ -73,8 +73,12 @@ Module sources are in `./work/vendor/flancer32/sample_mage2_module/src`:
 You should change files in `./work/htdocs/app/code/Flancer32` folder
  (linked to `./work/vendor/flancer32/sample_mage2_module/src`), not in `./src` folder itself. 
 
+Commit changes from `./work/vendor/flancer32/sample_mage2_module/src` to git:
+
+![Commit from vendor to git repo][git_commit]
 
 
 
 [symlink_from]: ./docs/img/symlink_from.png
 [symlink_to]: ./docs/img/symlink_to.png
+[git_commit]: ./docs/img/git_commit.png
