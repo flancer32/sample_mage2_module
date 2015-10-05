@@ -24,18 +24,18 @@ Clone repo from github:
     $ nano templates.json    
     {
       "vars": {
-        "LOCAL_ROOT": "/home/alex/work/github/sample_mage2_module",
+        "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module",
         "CFG_ADMIN_FIRSTNAME": "Store",
         "CFG_ADMIN_LASTNAME": "Admin",
         "CFG_ADMIN_EMAIL": "admin@store.com",
         "CFG_ADMIN_USERNAME": "admin",
-        "CFG_ADMIN_PASSWORD": "5ld5nmseE0FfVNQG1vSX",
-        "CFG_BASE_URL": "http://mage2.local.prxgt.com:50080/",
+        "CFG_ADMIN_PASSWORD": "eUvE7Yid057Cqtq5CkA8",
+        "CFG_BASE_URL": "http://mage2.local.host.com/",
         "CFG_BACKEND_FRONTNAME": "admin",
         "CFG_DB_HOST": "localhost",
-        "CFG_DB_NAME": "mage2",
-        "CFG_DB_USER": "apache",
-        "CFG_DB_PASSWORD": "JplOM6LeHPNa6fHQl5MP9",
+        "CFG_DB_NAME": "magento2",
+        "CFG_DB_USER": "magento2",
+        "CFG_DB_PASSWORD": "JvPESKVSjXvZDrGk2gBe",
         "CFG_LANGUAGE": "en_US",
         "CFG_CURRENCY": "USD",
         "CFG_TIMEZONE": "UTC",
@@ -56,7 +56,29 @@ Clone repo from github:
 
 ## Setup web server
 
-Point your web-server to folder `$LOCAL_ROOT/work/htdocs`
+Point your web-server to folder `$LOCAL_ROOT/work/htdocs`. This is sample for the Apache2 web server:
+
+    <VirtualHost *:80>
+      DocumentRoot /home/magento/instance/sample_mage2_module/work/htdocs/
+      DirectoryIndex index.php
+    
+      ServerName mage2.local.host.com
+      ServerAdmin support@local.host.com
+    
+      <Directory /home/magento/instance/sample_mage2_module/work/htdocs>
+        Options -Indexes +FollowSymLinks +MultiViews
+        Require all granted
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+        AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+      </Directory>
+    
+      LogLevel debug
+      ErrorLog /var/log/httpd/mage2_error.log
+      CustomLog /var/log/httpd/mage2_access.log combined
+    </VirtualHost>
+
 
 
     
