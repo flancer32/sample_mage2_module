@@ -15,7 +15,8 @@ Stub for Magento 2 module with development environment
 
     $ git clone git@github.com:flancer32/sample_mage2_module.git
     $ cd sample_mage2_module/work/
-    
+    $ composer install
+    $ sh  ./bin/deploy/post_install.sh
     
 
     

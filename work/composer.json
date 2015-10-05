@@ -64,7 +64,11 @@
       "flancer32/sample_mage2_module": "symlink"
     },
     "magento-force": true,
-    "auto-append-gitignore": false
+    "auto-append-gitignore": false,
+    "praxigento_templates_config": [
+      "./templates.json",
+      "./cfg/templates.json"
+    ]
   },
   "scripts": {
     "pre-install-cmd": [

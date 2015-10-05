@@ -1,0 +1,24 @@
+{
+  "vars": {
+    "LOCAL_ROOT": "/home/magento/instance/mage_ext_bonus/test",
+    "CFG_ADMIN_FIRSTNAME": "Store",
+    "CFG_ADMIN_LASTNAME": "Admin",
+    "CFG_ADMIN_EMAIL": "admin@store.com",
+    "CFG_ADMIN_USERNAME": "admin",
+    "CFG_ADMIN_PASSWORD": "eUvE7Yid057Cqtq5CkA8",
+    "CFG_BASE_URL": "http://bonus.mage.local.prxgt.com/",
+    "CFG_BACKEND_FRONTNAME": "admin",
+    "CFG_DB_HOST": "localhost",
+    "CFG_DB_NAME": "mage_bonus_local",
+    "CFG_DB_USER": "mage_bonus_local",
+    "CFG_DB_PASSWORD": "JvPESvZDrGk2gBKVSjXe",
+    "CFG_LANGUAGE": "en_US",
+    "CFG_CURRENCY": "USD",
+    "CFG_TIMEZONE": "UTC",
+    "CFG_USE_REWRITES": "0",
+    "CFG_USE_SECURE": "0",
+    "CFG_USE_SECURE_ADMIN": "0",
+    "CFG_ADMI_USE_SECURITY_KEY": "0",
+    "CFG_SESSION_SAVE": "db"
+  }
+}
