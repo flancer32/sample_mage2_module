@@ -69,7 +69,7 @@
   "scripts": {
     "pre-install-cmd": [
       "# Create root directory for the development Magento instance.",
-      "mkdir htdocs"
+      "mkdir -p htdocs"
     ]
   },
   "config": {

@@ -1,0 +1,49 @@
+{
+  "templates": {
+    "bin/deploy/install.php": {
+      "src": "cfg/bin/deploy/install.php",
+      "dst": "bin/deploy/install.php",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    },
+    "bin/deploy/post_install.sh": {
+      "src": "cfg/bin/deploy/post_install.sh",
+      "dst": "bin/deploy/post_install.sh",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    },
+    "bin/deploy/post_install.sql": {
+      "src": "cfg/bin/deploy/post_install.sql",
+      "dst": "bin/deploy/post_install.sql",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    },
+    "mage/app/code/local/Mage/Eav/Model/Entity/Attribute/Abstract.php": {
+      "src": "cfg/mage/app/code/local/Mage/Eav/Model/Entity/Attribute/Abstract.php",
+      "dst": "mage/app/code/local/Mage/Eav/Model/Entity/Attribute/Abstract.php",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    },
+    "mage/app/etc/log4php.cfg.xml": {
+      "src": "cfg/mage/app/etc/log4php.cfg.xml",
+      "dst": "mage/app/etc/log4php.cfg.xml",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    }
+  }
+}
