@@ -1,6 +1,8 @@
 {
   "vars": {
     "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module",
+    "LOCAL_OWNER": "magento2",
+    "LOCAL_GROUP": "www-data",
     "CFG_ADMIN_FIRSTNAME": "Store",
     "CFG_ADMIN_LASTNAME": "Admin",
     "CFG_ADMIN_EMAIL": "admin@store.com",

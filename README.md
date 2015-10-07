@@ -1,6 +1,6 @@
 # sample_mage2_module
 
-Stub for Magento 2 module with development environment
+Stub for Magento 2 module with development environment.
 
 
 
@@ -8,6 +8,7 @@ Stub for Magento 2 module with development environment
 
 * [Installing Magento 2 with Composer](http://magenticians.com/installing-magento-2-composer)
 * [Setup Wizard installation](http://devdocs.magento.com/guides/v2.0/install-gde/install/web/install-web.html)
+* [Set file system ownership and permissions](http://devdocs.magento.com/guides/v2.0/install-gde/install/file-system-perms.html)
 
 
 
@@ -25,6 +26,8 @@ Clone repo from github:
     {
       "vars": {
         "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module",
+        "LOCAL_OWNER": "magento2",
+        "LOCAL_GROUP": "www-data",
         "CFG_ADMIN_FIRSTNAME": "Store",
         "CFG_ADMIN_LASTNAME": "Admin",
         "CFG_ADMIN_EMAIL": "admin@store.com",
@@ -47,7 +50,7 @@ Clone repo from github:
       }
     }
     
-... then run composer and Magento install:  
+... then run composer and post install script:  
     
     $ composer install
     $ sh  ./bin/deploy/post_install.sh

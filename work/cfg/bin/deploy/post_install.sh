@@ -5,15 +5,35 @@
 
 # local specific environment
 LOCAL_ROOT=${LOCAL_ROOT}
-
-# restore write access for owner on repeated launches.
-if [ -d "$LOCAL_ROOT/work/htdocs/app/etc" ]
-then
-    chmod -R u+w $LOCAL_ROOT/work/htdocs/app/etc
-fi
+# The owner of the Magento file system:
+#   * Must have full control (read/write/execute) of all files and directories.
+#   * Must not be the web server user; it should be a different user.
+LOCAL_OWNER=${LOCAL_OWNER}
+LOCAL_GROUP=${LOCAL_GROUP}
+# DB connection params
+DB_HOST=${CFG_DB_HOST}
+DB_NAME=${CFG_DB_NAME}
+DB_USER=${CFG_DB_USER}
+DB_PASS=${CFG_DB_PASSWORD}
 
 ##
-#   Re-install database.
+echo "Restore write access on folder 'work/htdocs/app/etc' for owner when launches are repeated."
+##
+if [ -d "$LOCAL_ROOT/work/htdocs/app/etc" ]
+then
+    chmod -R go+w $LOCAL_ROOT/work/htdocs/app/etc
+fi
+
+
+##
+echo "Drop database $DB_NAME."
+##
+mysqladmin -f -u"$DB_USER" -p"$DB_PASS" -h"$DB_HOST" drop "$DB_NAME"
+mysqladmin -f -u"$DB_USER" -p"$DB_PASS" -h"$DB_HOST" create "$DB_NAME"
+
+
+##
+echo "Re-install database $DB_NAME."
 ##
 
 # Full list of the available options:
@@ -42,9 +62,15 @@ php $LOCAL_ROOT/work/htdocs/bin/magento setup:install  \
 --cleanup-database \
 
 ##
-#   Setup filesystem permissions
+echo "Set file system ownership and permissions."
 ##
-chmod -R a-w $LOCAL_ROOT/work/htdocs/app/etc
+chown -R $LOCAL_OWNER:$LOCAL_GROUP $LOCAL_ROOT/work/htdocs
+find $LOCAL_ROOT/work/htdocs -type d -exec chmod 770 {} \;
+find $LOCAL_ROOT/work/htdocs -type f -exec chmod 660 {} \;
+chmod -R g+w $LOCAL_ROOT/work/htdocs/var
+chmod -R g+w $LOCAL_ROOT/work/htdocs/pub
+chmod u+x $LOCAL_ROOT/work/htdocs/bin/magento
+chmod -R go-w $LOCAL_ROOT/work/htdocs/app/etc
 
 ##
 echo "Post installation setup is done."
