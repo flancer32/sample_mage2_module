@@ -18,7 +18,7 @@ Clone repo from github:
     $ git clone git@github.com:flancer32/sample_mage2_module.git
     $ cd sample_mage2_module/work/
 
-... configure development instance (DB parameters, access parametes, etc):
+... configure development instance (DB parameters, access parameters, [etc](http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento)):
 
     $ cp templates.json.init templates.json
     $ nano templates.json    
@@ -28,7 +28,7 @@ Clone repo from github:
         "CFG_ADMIN_FIRSTNAME": "Store",
         "CFG_ADMIN_LASTNAME": "Admin",
         "CFG_ADMIN_EMAIL": "admin@store.com",
-        "CFG_ADMIN_USERNAME": "admin",
+        "CFG_ADMIN_USER": "admin",
         "CFG_ADMIN_PASSWORD": "eUvE7Yid057Cqtq5CkA8",
         "CFG_BASE_URL": "http://mage2.local.host.com/",
         "CFG_BACKEND_FRONTNAME": "admin",

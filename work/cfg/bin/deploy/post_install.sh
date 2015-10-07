@@ -6,6 +6,11 @@
 # local specific environment
 LOCAL_ROOT=${LOCAL_ROOT}
 
+# restore write access for owner on repeated launches.
+if [ -d "$LOCAL_ROOT/work/htdocs/app/etc" ]
+then
+    chmod -R u+w $LOCAL_ROOT/work/htdocs/app/etc
+fi
 
 ##
 #   Re-install database.
@@ -18,7 +23,7 @@ php $LOCAL_ROOT/work/htdocs/bin/magento setup:install  \
 --admin-firstname="${CFG_ADMIN_FIRSTNAME}" \
 --admin-lastname="${CFG_ADMIN_LASTNAME}" \
 --admin-email="${CFG_ADMIN_EMAIL}" \
---admin-user="${CFG_ADMIN_USERNAME}" \
+--admin-user="${CFG_ADMIN_USER}" \
 --admin-password="${CFG_ADMIN_PASSWORD}" \
 --base-url="${CFG_BASE_URL}" \
 --backend-frontname="${CFG_BACKEND_FRONTNAME}" \

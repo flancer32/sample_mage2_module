@@ -10,29 +10,33 @@
       "email": "flancer64@gmail.com"
     }
   ],
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://packages.magento.com/"
-    },
-    {
+  "repositories": {
+    "firegento": {
       "type": "composer",
       "url": "http://packages.firegento.com"
     },
-    {
-      "type": "vcs",
-      "url": "https://github.com/flancer32/sample_mage2_module"
+    "magento": {
+      "type": "composer",
+      "url": "http://packages.magento.com/"
     },
-    {
+    "flancer64/magento-composer-installer": {
       "type": "vcs",
       "url": "https://github.com/flancer64/magento-composer-installer"
+    },
+    "flancer32/sample_magelib_demo": {
+      "type": "vcs",
+      "url": "https://github.com/flancer32/sample_magelib_demo"
+    },
+    "flancer32/sample_mage2_module": {
+      "type": "vcs",
+      "url": "https://github.com/flancer32/sample_mage2_module"
     }
-  ],
+  },
   "require": {
     "magento/magento-composer-installer": "dev-patch-1",
-    "magento-hackathon/composer-command-integrator": "1.0",
     "praxigento/composer_plugin_templates": "^1.0",
     "magento/product-community-edition": "1.0.0-beta",
+    "flancer32/sample_magelib_demo": "dev-master",
     "flancer32/sample_mage2_module": "dev-master"
   },
   "require-dev": {
