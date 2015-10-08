@@ -1,1 +1,1 @@
-# Tests running in Magento v1 module
+# Tests running in Magento v2 module
