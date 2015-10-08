@@ -1,0 +1,1 @@
+# Tests running in Magento v1 module
