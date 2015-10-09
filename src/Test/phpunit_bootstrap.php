@@ -28,6 +28,11 @@ if(!defined('BP')) {
         throw new Exception('Cannot find Magento installation. Tests are stopped.');
     } else {
         require_once $pathToBootstrap;
+        $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
+        /** @var \Magento\Framework\App\Http $app */
+        $app = $bootstrap->createApplication('Magento\Framework\App\Http');
+        $bootstrap->run($app);
+
         // Avoid issues "Headers already send"
         //        session_start();
     }

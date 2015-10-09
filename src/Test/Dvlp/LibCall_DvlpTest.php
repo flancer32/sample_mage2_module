@@ -6,11 +6,12 @@ if(!defined('BP')) {
 /**
  * User: Alex Gusev <alex@flancer64.com>
  */
-class LibCall_UnitTest extends \PHPUnit_Framework_TestCase {
-    public function test_doCall() {
+class LibCall_DvlpTest extends \PHPUnit_Framework_TestCase {
+
+    public function test_doDbOperations() {
         /** @var  $m2 \Flancer32\Sample\LibCall */
         $m2 = new Flancer32\Sample\LibCall();
-        $resp = $m2->doCall();
-        $this->assertEquals(34, $resp);
+        $resp = $m2->doDbOperations();
+        $this->assertTrue($resp);
     }
 }
