@@ -65,6 +65,7 @@
     "magento-root-dir": "htdocs",
     "magento-deploystrategy": "copy",
     "magento-deploystrategy-overwrite": {
+      "flancer32/sample_magelib_demo": "symlink",
       "flancer32/sample_mage2_module": "symlink"
     },
     "magento-force": true,

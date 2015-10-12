@@ -4,7 +4,8 @@
 
 There are 2 test modes used in this sample module:
 * Unit tests: lightweight tests w/o establishing DB connection;
-* Dvlp tests: these are not pure tests, this scripts should be launched from IDE to learn Magento 2 aspects.
+* Dvlp tests: these are not pure tests, these scripts should be launched from IDE to learn Magento aspects.
+
 
 
 ## Launch unit tests
@@ -13,16 +14,17 @@ There are 2 test modes used in this sample module:
     $ phpunit -c ./app/code/Flancer32/Sample/Test/phpunit.dist.xml
 
 
+
 ## Launch dvlp tests
 
-I use PhpStorm. Setup PHPUnit in PhpStorm:
+I use PhpStorm. Setup Composer autoload function for PHPUnit in PhpStorm:
 
 ![tests_run_ide_settings_phpunit](./img/tests_run_ide_settings_phpunit.png)
 
-Start test class or method (mouse right click then select action):
+Go to `./work/htdocs/app/code/Flancer32/Sample/Test/Dvlp/Lib/` and start test class or method in 'run' or 'debug' mode 
+(mouse right click then select action):
 
 ![tests_run_ide_run_method](./img/tests_run_ide_run_method.png)
-
 
 
 

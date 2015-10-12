@@ -14,13 +14,27 @@ Module's files and folders mapping is configured in module's [composer.json](../
           ]
         ]
       },
-    
+
+ 
+## Symlinks
+
 Files and folders from `work/vendor/flancer32/sample_mage2_module` are mapped into the `work/htdocs` folder using
 *symlink* strategy. So when you change file `work/htdocs/app/code/Flancer32/Sample/etc/module.xml`
 you really change file `work/vendor/flancer32/sample_mage2_module/src/etc/module.xml`.
 
 You should use local git repository in `work/vendor/flancer32/sample_mage2_module` to work with changes in the module.
+
  
+[Configure](https://github.com/flancer32/sample_mage2_module/blob/master/work/composer.json) deploy strategy for 
+modules in development:
+
+      "extra": {
+        "magento-deploystrategy": "copy",
+        "magento-deploystrategy-overwrite": {
+          "flancer32/sample_magelib_demo": "symlink",
+          "flancer32/sample_mage2_module": "symlink"
+        }
+      }
  
  
 ## Add git repositories to your IDE
