@@ -1,22 +1,18 @@
 <?php
 /**
+ * Sample class to use common library methods to perform basic database operations on low level
+ * (w/o Magento FW, using Zend_Db methods only).
+ *
  * User: Alex Gusev <alex@flancer64.com>
  */
-namespace Flancer32\Sample;
+namespace Flancer32\Sample\Lib;
 
 use Flancer32\Lib\Entity\Bonus\Type as BonusType;
 
-class LibCall {
-
-    public function doCall() {
-        /** @var  $lib Flancer32\Lib\Service\Customer\Call */
-        $lib = new \Flancer32\Lib\Service\Customer\Call();
-        $result = $lib->operation(32);
-        return $result;
-    }
+class Crud {
 
     /**
-     * Perform low-level DB operations using common library.
+     * Call to common library method to perform low-level DB operations (Create, Read, Update, Delete).
      *
      * @return string
      */
