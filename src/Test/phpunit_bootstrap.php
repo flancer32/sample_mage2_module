@@ -27,8 +27,22 @@ if(!defined('BP')) {
     if(!$isMageFound) {
         throw new Exception('Cannot find Magento installation. Tests are stopped.');
     } else {
+        /* Load Magneto bootstrap script (./app/bootstrap.php). */
         require_once $pathToBootstrap;
-        // Avoid issues "Headers already send"
-        //        session_start();
+
+        /**
+         * Create test application that initializes DB connection and ends w/o exit
+         *  ($response->terminateOnSend = false).
+         */
+        $params = $_SERVER;
+        //        $params[ \Magento\Store\Model\StoreManager::PARAM_RUN_CODE ] = 'admin';
+        //        $params[ \Magento\Store\Model\StoreManager::PARAM_RUN_TYPE ] = 'store';
+        //        $params[ \Magento\Store\Model\Store::CUSTOM_ENTRY_POINT_PARAM ] = true;
+        /** @var  $bootstrap \Magento\Framework\App\Bootstrap */
+        $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $params);
+        $objectManager = $bootstrap->getObjectManager();
+        /** @var  $app \Flancer32\Sample\Test\App */
+        $app = $bootstrap->createApplication('\Flancer32\Sample\Test\App');
+        $bootstrap->run($app);
     }
 }
