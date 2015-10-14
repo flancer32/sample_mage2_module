@@ -9,7 +9,7 @@
          stopOnFailure="false"
          syntaxCheck="true"
          bootstrap="./phpunit_bootstrap.php">
-    <testsuite name="Flancer32 Sample Unit Test">
+    <testsuite name="Functional Tests for Sample Development Environment (2 modules under development)">
         <directory suffix="_Test.php">../../vendor/flancer32/sample_mage2_module/test/functional</directory>
         <directory suffix="_Test.php">../../vendor/flancer32/sample_magelib_demo/test/functional</directory>
     </testsuite>
