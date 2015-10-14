@@ -1,6 +1,6 @@
 <?php
 /**
- * Call to common M1 & M2 library.
+ * Call to common M1 & M2 library. Simple operation (just process request then return).
  *
  * User: Alex Gusev <alex@flancer64.com>
  */
