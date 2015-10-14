@@ -4,11 +4,9 @@ Stub for Magento 2 module with development environment.
 
 
 
-## Magento 2 Module Links
+## Docs
 
-* [Installing Magento 2 with Composer](http://magenticians.com/installing-magento-2-composer)
-* [Setup Wizard installation](http://devdocs.magento.com/guides/v2.0/install-gde/install/web/install-web.html)
-* [Set file system ownership and permissions](http://devdocs.magento.com/guides/v2.0/install-gde/install/file-system-perms.html)
+[Additional documentation](./docs/).
 
 
 
@@ -104,6 +102,18 @@ Commit changes from `./work/vendor/flancer32/sample_mage2_module/src` to git:
 
 
 
+## Links
+
+* [Installing Magento 2 with Composer](http://magenticians.com/installing-magento-2-composer)
+* [Setup Wizard installation](http://devdocs.magento.com/guides/v2.0/install-gde/install/web/install-web.html)
+* [Set file system ownership and permissions](http://devdocs.magento.com/guides/v2.0/install-gde/install/file-system-perms.html)
+
+
+
+
+
 [symlink_from]: ./docs/img/symlink_from.png
 [symlink_to]: ./docs/img/symlink_to.png
 [git_commit]: ./docs/img/git_commit.png
+
+
