@@ -10,6 +10,17 @@
       "email": "flancer64@gmail.com"
     }
   ],
+  "autoload": {
+    "psr-4": {
+      "Flancer32\\Sample\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Flancer32\\Sample\\": "test/functional",
+      "Flancer32\\Sample\\": "test/unit"
+    }
+  },
   "extra": {
     "map": [
       [
