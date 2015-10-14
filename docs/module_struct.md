@@ -2,7 +2,8 @@
 
 This is just a sample, you can create your own module's structure by your own way.
 This is a PHP Composer compatible module to be used in Magento v2 applications.
-There is development instance of the Magento application with our module (sym)linked into the application.
+Module contains development instance of the Magento v2 application with module's sources are (sym)linked into 
+this development instance.
 
 
 
@@ -23,6 +24,12 @@ target Magento application.
 
 Module's sources to be used for mapping when composer package will be installed.
 These are not sources for development, these sources are for deployment only.
+
+
+
+### ./test
+
+Module's test scripts.
 
 
 

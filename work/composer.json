@@ -85,6 +85,9 @@
     "pre-install-cmd": [
       "# Create root directory for the development Magento instance.",
       "mkdir -p htdocs"
+    ],
+    "post-install-cmd": [
+      "# To complete installation launch 'sh ./bin/deploy/post_install.sh'"
     ]
   },
   "extra": {
