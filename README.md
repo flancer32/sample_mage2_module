@@ -6,7 +6,7 @@ Stub for Magento 2 module with development environment.
 
 ## Docs
 
-[Additional documentation](./docs/).
+[Additional documentation](./docs/README.md).
 
 
 
