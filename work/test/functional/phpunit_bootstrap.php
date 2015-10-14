@@ -15,7 +15,10 @@ if(!defined('BP')) {
     /** @var  $bootstrap \Magento\Framework\App\Bootstrap */
     $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $params);
     $objectManager = $bootstrap->getObjectManager();
+    //    $pool = $objectManager->create('Magento\Store\Model\Config\Reader\Store');
+    //    $pool = $objectManager->create('Magento\Store\Model\Config\Reader\ReaderPool');
     /** @var  $app \Flancer32\Sample\Test\App */
-    $app = $bootstrap->createApplication('Flancer32\Sample\Test\App');
+    $app = $bootstrap->createApplication('\Flancer32\Sample\Test\App');
+//    $app = $bootstrap->createApplication('\Magento\Framework\App\Http');
     $bootstrap->run($app);
 }

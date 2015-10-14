@@ -1,6 +1,6 @@
 <?php
 /**
- * Test application to connect to DB.
+ * Test application to connect to DB. Used in functional tests.
  *
  * User: Alex Gusev <alex@flancer64.com>
  */
