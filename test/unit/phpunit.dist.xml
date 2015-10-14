@@ -9,7 +9,7 @@
          stopOnFailure="false"
          syntaxCheck="true"
          bootstrap="./phpunit_bootstrap.php">
-    <testsuite name="Magento Sample Unit Test">
+    <testsuite name="Unit Tests for Magento Module Sample">
         <directory suffix="_Test.php">.</directory>
     </testsuite>
     <logging>

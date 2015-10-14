@@ -15,13 +15,6 @@
       "Flancer32\\Sample\\": "src/"
     }
   },
-  "autoload-dev": {
-    "psr-4": {
-      "Flancer32\\Sample\\": "test/functional",
-      "Flancer32\\Sample\\": "test/unit",
-      "Flancer32\\Sample\\": "test/fw"
-    }
-  },
   "extra": {
     "map": [
       [
