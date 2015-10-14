@@ -4,11 +4,11 @@ There are 2 development modules in the sample.
 All module level tests are in `work/vendor/flancer32/<module_name>/test` folder:
 
 * work/vendor/flancer32/sample_mage2_module/test
-    * [functional](../work/vendor/flancer32/sample_mage2_module/test/functional/phpunit.dist.xml)
-    * [unit](../work/vendor/flancer32/sample_mage2_module/test/unit/phpunit.dist.xml)
+    * [functional](../test/functional/phpunit.dist.xml)
+    * [unit](..//test/unit/phpunit.dist.xml)
 * work/vendor/flancer32/sample_magelib_demo/test
-    * [functional](../work/vendor/flancer32/sample_magelib_demo/test/functional/phpunit.dist.xml)
-    * [unit](../work/vendor/flancer32/sample_magelib_demo/test/unit/phpunit.dist.xml)
+    * [functional](https://github.com/flancer32/sample_magelib_demo/blob/master/test/functional/phpunit.dist.xml)
+    * [unit](https://github.com/flancer32/sample_magelib_demo/blob/master/test/unit/phpunit.dist.xml)
 
 
 
