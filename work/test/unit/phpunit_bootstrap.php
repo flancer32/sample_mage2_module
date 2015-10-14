@@ -1,4 +1,3 @@
 <?php
-/**
- * Additional setup for unit test should be placed here.
- */
+/* Composer autoloader. */
+include_once(__DIR__ . '/../../vendor/autoload.php');
