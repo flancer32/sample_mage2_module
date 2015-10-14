@@ -1,11 +1,7 @@
 <?php
 /**
- * Copyright (c) 2015, Praxigento
- * All rights reserved.
- */
-
-/**
- * Create DB schema.
+ * Create DB schema for sample module.
+ *
  * User: Alex Gusev <alex@flancer64.com>
  */
 
