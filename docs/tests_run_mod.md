@@ -1,7 +1,7 @@
 # Run module level tests in Magento v2 development environment
 
 There are 2 development modules in the sample. 
-All module level tests are in `work/vendor/flancer32/<module_name>/test` folder:
+All module level tests are in `work/vendor/flancer32/<module_name>/test` folder (don't use `./test/` folder):
 
 * work/vendor/flancer32/sample_mage2_module/test
     * [functional](../test/functional/phpunit.dist.xml)

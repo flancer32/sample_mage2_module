@@ -1,14 +1,14 @@
 # Run/debug individual tests in Magento v2 development environment
 
 There are 2 development modules in the sample. 
-All module level tests are in `work/vendor/flancer32/<module_name>/test` folder:
+All module level tests are in `work/vendor/flancer32/<module_name>/test` folder (don't use `./test/` folder):
 
 * work/vendor/flancer32/sample_mage2_module/test
-    * [functional](../test/functional/phpunit.dist.xml)
-    * [unit](..//test/unit/phpunit.dist.xml)
+    * [functional](../test/functional/)
+    * [unit](..//test/unit/)
 * work/vendor/flancer32/sample_magelib_demo/test
-    * [functional](https://github.com/flancer32/sample_magelib_demo/blob/master/test/functional/phpunit.dist.xml)
-    * [unit](https://github.com/flancer32/sample_magelib_demo/blob/master/test/unit/phpunit.dist.xml)
+    * [functional](https://github.com/flancer32/sample_magelib_demo/blob/master/test/functional/)
+    * [unit](https://github.com/flancer32/sample_magelib_demo/blob/master/test/unit/)
 
 
 
