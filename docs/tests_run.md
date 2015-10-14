@@ -6,7 +6,8 @@
   
 There are 2 tests classes used in this sample module:
 
-* Unit tests ([./test/unit](../test/unit/)): lightweight tests (without initialization of the Magento application);
+* Unit tests ([./test/unit](../test/unit/)): lightweight tests (without initialization of the Magento application, all 
+external classes are mocked);
 * Functional tests ([./test/functional](../test/functional/)): testing some features in the Magento environment 
 (these scripts can be launched from IDE to learn Magento aspects).
 
