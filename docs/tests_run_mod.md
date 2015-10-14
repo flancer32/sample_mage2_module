@@ -14,10 +14,11 @@ All module level tests are in `work/vendor/flancer32/<module_name>/test` folder:
 
 ## Run from CLI
 
-    $ phpunit -c ./work/vendor/flancer32/sample_mage2_module/test/functional/phpunit.dist.xml
-    $ phpunit -c ./work/vendor/flancer32/sample_mage2_module/test/unit/phpunit.dist.xml
-    $ phpunit -c ./work/vendor/flancer32/sample_magelib_demo/test/functional/phpunit.dist.xml
-    $ phpunit -c ./work/vendor/flancer32/sample_magelib_demo/test/unit/phpunit.dist.xml
+    $ cd ./work
+    $ phpunit -c ./vendor/flancer32/sample_mage2_module/test/functional/phpunit.dist.xml
+    $ phpunit -c ./vendor/flancer32/sample_mage2_module/test/unit/phpunit.dist.xml
+    $ phpunit -c ./vendor/flancer32/sample_magelib_demo/test/functional/phpunit.dist.xml
+    $ phpunit -c ./vendor/flancer32/sample_magelib_demo/test/unit/phpunit.dist.xml
   
     
     
