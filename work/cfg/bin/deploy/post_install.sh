@@ -1,6 +1,7 @@
 #!/bin/sh
 ##
-#   Setup Magento instance after update with Composer.
+#   Setup Magento instance after install with Composer.
+#   (all placeholders ${...} should be replaced by real values from ./work/template.json file)
 ##
 
 # local specific environment

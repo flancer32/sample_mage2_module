@@ -4,7 +4,7 @@
 
 ## Tests classification
   
-There are 2 tests classes used in this sample module:
+There are 2 tests classes are used in this sample module:
 
 * Unit tests ([./test/unit](../test/unit/)): lightweight tests (without initialization of the Magento application, all 
 external classes are mocked);
@@ -15,7 +15,7 @@ external classes are mocked);
 
 ## Test modes
 
-* Package: launch all tests from IDE/CLI.
+* Package: launch all application or module tests from IDE/CLI.
 * Development: launch single test class or method from IDE/CLI;
 
 
@@ -45,3 +45,11 @@ or use instance that is loaded by composer:
 
     $ cd ./work
     $ ./vendor/bin/phpunit ...
+    
+
+
+## Setup IDE PhpStorm
+
+To launch test units from IDE setup composer autoloader in the settings (`./work/composer.json`, not `./composer.json`):
+ 
+![tests_run_ide_setup](./img/tests_run_ide_setup.png)
