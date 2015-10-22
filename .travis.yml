@@ -1,6 +1,8 @@
 # Use Travis standard env (http://docs.travis-ci.com/user/ci-environment/)
 sudo: required
+
 language: php
+
 php:
   - 5.6
  - hhvm
