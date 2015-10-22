@@ -2,6 +2,8 @@
 
 Stub for Magento 2 module with development environment.
 
+[![Build Status](https://travis-ci.org/flancer32/sample_mage2_module.svg)](https://travis-ci.org/flancer32/sample_mage2_module/)
+
 * [Install development environment](./docs/install_work.md)
 * [Install live instance](./docs/install_live.md)
 

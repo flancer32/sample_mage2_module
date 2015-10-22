@@ -18,7 +18,8 @@ Create JSON configuration for your development instance
     $ nano templates.json    
     {
       "vars": {
-        "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module",
+        "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module/live",
+        "DEPLOYMENT_TYPE": "manual",
         "LOCAL_OWNER": "magento2",
         "LOCAL_GROUP": "www-data",
         "CFG_ADMIN_FIRSTNAME": "Store",

@@ -19,6 +19,7 @@ Create JSON configuration for your development instance
     {
       "vars": {
         "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module",
+        "DEPLOYMENT_TYPE": "manual",
         "LOCAL_OWNER": "magento2",
         "LOCAL_GROUP": "www-data",
         "CFG_ADMIN_FIRSTNAME": "Store",
@@ -31,7 +32,7 @@ Create JSON configuration for your development instance
         "CFG_DB_HOST": "localhost",
         "CFG_DB_NAME": "magento2",
         "CFG_DB_USER": "magento2",
-        "CFG_DB_PASSWORD": "JvPESKVSjXvZDrGk2gBe",
+        "CFG_DB_PASSWORD": "JvPESKVSjXvZDrGk2gBe or use 'skip_password'",
         "CFG_LANGUAGE": "en_US",
         "CFG_CURRENCY": "USD",
         "CFG_TIMEZONE": "UTC",

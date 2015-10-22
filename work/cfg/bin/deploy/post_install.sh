@@ -4,43 +4,64 @@
 #   (all placeholders ${...} should be replaced by real values from ./work/template.json file)
 ##
 
+# type of the deployment (skip some steps when app is deployed in TRAVIS CI, $DEPLOYMENT_TYPE='travis')
+DEPLOYMENT_TYPE=${DEPLOYMENT_TYPE}
 # local specific environment
 LOCAL_ROOT=${LOCAL_ROOT}
+MAGE_ROOT=$LOCAL_ROOT/htdocs
 # The owner of the Magento file system:
 #   * Must have full control (read/write/execute) of all files and directories.
 #   * Must not be the web server user; it should be a different user.
+# Web server:
+#   * must be a member of the '${LOCAL_GROUP}' group.
 LOCAL_OWNER=${LOCAL_OWNER}
 LOCAL_GROUP=${LOCAL_GROUP}
 # DB connection params
 DB_HOST=${CFG_DB_HOST}
 DB_NAME=${CFG_DB_NAME}
 DB_USER=${CFG_DB_USER}
+# use 'skip_password' to connect to server w/o password.
 DB_PASS=${CFG_DB_PASSWORD}
+if [ "$DB_PASS" = "skip_password" ]; then
+    MYSQL_PASS=""
+    MAGE_DBPASS=""
+else
+    MYSQL_PASS="--password=$DB_PASS"
+    MAGE_DBPASS="--db-password=""${CFG_DB_PASSWORD}"""
+fi
+
+
 
 ##
 echo "Restore write access on folder 'work/htdocs/app/etc' for owner when launches are repeated."
 ##
-if [ -d "$LOCAL_ROOT/work/htdocs/app/etc" ]
+if [ -d "$MAGE_ROOT/app/etc" ]
 then
-    chmod -R go+w $LOCAL_ROOT/work/htdocs/app/etc
+    chmod -R go+w $MAGE_ROOT/app/etc
 fi
 
 
-##
-echo "Drop database $DB_NAME."
-##
-mysqladmin -f -u"$DB_USER" -p"$DB_PASS" -h"$DB_HOST" drop "$DB_NAME"
-mysqladmin -f -u"$DB_USER" -p"$DB_PASS" -h"$DB_HOST" create "$DB_NAME"
+
+if [ "$DEPLOYMENT_TYPE" = "travis" ]; then
+    echo "Skip DB '$DB_NAME' drop/create for TRAVIS CI."
+else
+    ##
+    echo "Drop database $DB_NAME."
+    ##
+    mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" drop "$DB_NAME"
+    mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" create "$DB_NAME"
+fi
 
 
+
 ##
-echo "Re-install database $DB_NAME."
+echo "(Re)install Magento using database '$DB_NAME' (connecting as '$DB_USER')."
 ##
 
 # Full list of the available options:
 # http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento
 
-php $LOCAL_ROOT/work/htdocs/bin/magento setup:install  \
+php $MAGE_ROOT/bin/magento setup:install  \
 --admin-firstname="${CFG_ADMIN_FIRSTNAME}" \
 --admin-lastname="${CFG_ADMIN_LASTNAME}" \
 --admin-email="${CFG_ADMIN_EMAIL}" \
@@ -51,7 +72,7 @@ php $LOCAL_ROOT/work/htdocs/bin/magento setup:install  \
 --db-host="${CFG_DB_HOST}" \
 --db-name="${CFG_DB_NAME}" \
 --db-user="${CFG_DB_USER}" \
---db-password="${CFG_DB_PASSWORD}" \
+$MAGE_DBPASS \
 --language="${CFG_LANGUAGE}" \
 --currency="${CFG_CURRENCY}" \
 --timezone="${CFG_TIMEZONE}" \
@@ -62,16 +83,24 @@ php $LOCAL_ROOT/work/htdocs/bin/magento setup:install  \
 --session-save="${CFG_SESSION_SAVE}" \
 --cleanup-database \
 
-##
-echo "Set file system ownership and permissions."
-##
-chown -R $LOCAL_OWNER:$LOCAL_GROUP $LOCAL_ROOT/work/htdocs
-find $LOCAL_ROOT/work/htdocs -type d -exec chmod 770 {} \;
-find $LOCAL_ROOT/work/htdocs -type f -exec chmod 660 {} \;
-chmod -R g+w $LOCAL_ROOT/work/htdocs/var
-chmod -R g+w $LOCAL_ROOT/work/htdocs/pub
-chmod u+x $LOCAL_ROOT/work/htdocs/bin/magento
-chmod -R go-w $LOCAL_ROOT/work/htdocs/app/etc
+
+
+if [ "$DEPLOYMENT_TYPE" = "travis" ]; then
+    echo "Skip file system ownership and permissions setup."
+else
+    ##
+    echo "Set file system ownership and permissions."
+    ##
+    chown -R $LOCAL_OWNER:$LOCAL_GROUP $MAGE_ROOT
+    find $MAGE_ROOT -type d -exec chmod 770 {} \;
+    find $MAGE_ROOT -type f -exec chmod 660 {} \;
+    chmod -R g+w $MAGE_ROOT/var
+    chmod -R g+w $MAGE_ROOT/pub
+    chmod u+x $MAGE_ROOT/bin/magento
+    chmod -R go-w $MAGE_ROOT/app/etc
+fi
+
+
 
 ##
 echo "Post installation setup is done."
