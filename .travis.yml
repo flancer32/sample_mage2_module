@@ -32,6 +32,7 @@ before_install:
   - composer self-update
   - composer install
 # Run post installation script (deploy Magento2 itself)
+  - cat ./bin/deploy/post_install.sh
   - sh ./bin/deploy/post_install.sh
 
 
