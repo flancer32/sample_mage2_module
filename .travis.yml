@@ -38,6 +38,7 @@ before_install:
 script:
   - phpunit --configuration ./test/unit/phpunit.dist.xml
   - phpunit --configuration ./test/functional/phpunit.dist.xml
+  - phpunit --configuration ./htdocs/dev/tests/unit/phpunit.xml.dist
 
 notifications:
   email:

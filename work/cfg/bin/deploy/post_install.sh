@@ -42,15 +42,11 @@ fi
 
 
 
-if [ "$DEPLOYMENT_TYPE" = "travis" ]; then
-    echo "Skip DB '$DB_NAME' drop/create for TRAVIS CI."
-else
-    ##
-    echo "Drop database $DB_NAME."
-    ##
-    mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" drop "$DB_NAME"
-    mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" create "$DB_NAME"
-fi
+##
+echo "Drop database $DB_NAME."
+##
+mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" drop "$DB_NAME"
+mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" create "$DB_NAME"
 
 
 
