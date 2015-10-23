@@ -3,7 +3,7 @@ sudo: required
 language: php
 php:
   - 5.6
-  - hhvm
+#  - hhvm # there is an error on DB installation: "Command option 'language': Invalid value. To see possible values, run command 'bin/magento info:language:list'."
 
 
 before_install:
