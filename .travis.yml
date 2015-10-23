@@ -19,7 +19,8 @@ before_install:
 # some config values were changed since 5.5
   - sudo sed -i'' 's/table_cache/table_open_cache/' /etc/mysql/my.cnf
   - sudo sed -i'' 's/log_slow_queries/slow_query_log/' /etc/mysql/my.cnf
-  - sudo sed -i'' 's/basedir[^=]\\+=.*$/basedir = \\/opt\\/mysql\\/server-5.6/' /etc/mysql/my.cnf
+  - "sudo sed -i'' 's/basedir[^=]\\+=.*$/basedir = \\/opt\\/mysql\\/server-5.6/' /etc/mysql/my.cnf" # there is an error
+# ... w/o double quotes: The command "sudo sed -i'' 's/basedir[^=]\+=.*$/basedir = \/opt\/mysql\/server-5.6/' /etc/mysql/my.cnf" failed and exited with 1 during .
   - sudo /etc/init.d/mysql.server start
   - mysql --version # control version after upgrade
 # Deploy Magento 2 application
