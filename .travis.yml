@@ -5,7 +5,6 @@ php:
 #  - hhvm # there is an error on DB installation: "Command option 'language': Invalid value. To see possible values,
 # ... run command 'bin/magento info:language:list'."
 
-
 before_install:
 # Setup MySQL 5.6 on Ubuntu 12.04 (thanks to drogus - https://gist.github.com/drogus/6718448):
   - mysql --version # control version before upgrade
@@ -28,17 +27,16 @@ before_install:
   - cd work #  go to root folder for development environment
   - pwd # control current path ('LOCAL_ROOT' in templates.json)
   - cp templates.json.travis templates.json # create configuration for Travis from template
-#  - composer self-update # update composer to prevent error Class 'Composer\Installer\PackageEvents' not found in
-#   .../work/vendor/aydin-hassan/magento-core-composer-installer/src/CoreManager.php on line 109
+  - composer self-update # update composer
   - composer install
 # Run post installation script (deploy Magento2 itself)
   - cat ./bin/deploy/post_install.sh # control parameters in the installation script
   - sh ./bin/deploy/post_install.sh # create initial DB, setup permissions, ...
 
 script:
-  - phpunit --configuration ./test/unit/phpunit.dist.xml
-  - phpunit --configuration ./test/functional/phpunit.dist.xml
-  - phpunit --configuration ./htdocs/dev/tests/unit/phpunit.xml.dist
+  - phpunit --configuration ./test/unit/phpunit.dist.xml # run project's unit tests
+  - phpunit --configuration ./test/functional/phpunit.dist.xml # run project's functional tests
+#  - phpunit --configuration ./htdocs/dev/tests/unit/phpunit.xml.dist # run Magento 2 unit tests
 
 notifications:
   email:
