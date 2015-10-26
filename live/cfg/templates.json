@@ -1,0 +1,13 @@
+{
+  "templates": {
+    "bin/deploy/post_install.sh": {
+      "src": "cfg/bin/deploy/post_install.sh",
+      "dst": "bin/deploy/post_install.sh",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    }
+  }
+}
