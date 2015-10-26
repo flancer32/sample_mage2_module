@@ -10,6 +10,9 @@
       "email": "flancer64@gmail.com"
     }
   ],
+  "require": {
+    "flancer32/sample_magelib_demo": "dev-master"
+  },
   "autoload": {
     "psr-4": {
       "Flancer32\\Sample\\": "src/"
