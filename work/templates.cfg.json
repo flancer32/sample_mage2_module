@@ -1,8 +1,8 @@
 {
   "templates": {
-    "bin/deploy/post_install.sh": {
-      "src": "cfg/bin/deploy/post_install.sh",
-      "dst": "bin/deploy/post_install.sh",
+    "bin/post_install.sh": {
+      "src": "../src/cfg/bin/post_install.work.sh",
+      "dst": "bin/post_install.sh",
       "events": [
         "post-install-cmd",
         "post-status-cmd"

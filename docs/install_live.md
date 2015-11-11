@@ -51,11 +51,11 @@ Create JSON configuration for your development instance
 
 ## Additional configuration
 
-Shell script `./work/bin/deploy/post_install.sh` is created from `./work/cfg/bin/deploy/post_install.sh` template on
+Shell script `./work/bin/post_install.sh` is created from `./src/cfg/bin/post_install.work.sh` template on
 _post-install-cmd_ and _post-status-cmd_ events (see [praxigento/composer_plugin_templates](https://github.com/praxigento/composer_plugin_templates)).
-Configuration parameters for placeholders are taken from `templates.json`:
+Configuration parameters for placeholders are taken from `templates.vars.json`:
 
-    $ sh  ./bin/deploy/post_install.sh
+    $ sh  ./bin/post_install.sh
 
 
 

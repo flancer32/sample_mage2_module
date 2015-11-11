@@ -1,4 +1,4 @@
-# Magento v2 module structure
+# M2 Sample Module's Structure
 
 This is just a sample, you can create your own module's structure by your own way.
 This is a PHP Composer compatible module to be used in Magento v2 applications.
@@ -6,108 +6,19 @@ Module contains development instance of the Magento v2 application with module's
 this development instance.
 
 
-
-## Module itself related files and folders
-
-
-
-### ./composer.json
-
-[Source](../composer.json)
-
-Main file of the composer package. Defines type of the package (magento-module), dependencies and files mapping to the
-target Magento application.
-
-
-
-### ./src
-
-Module's sources to be used for mapping when composer package will be installed.
-These are not sources for development, these sources are for deployment only.
-
-
-
-### ./test
-
-Module's test scripts.
-
-
-
-## Development environment
-
-
-
-### ./work
-
-Contains files to deploy development environment for module development.
-
-
-
-### ./work/composer.json
-
-[Source](../work/composer.json)
-
-Descriptor for Magento application deployment. This app will include our module and will provide environment 
-for module's development.
-
-
-
-### ./work/cfg/bin/deploy/post_install.sh
-
-[Source](../work/cfg/bin/deploy/post_install.sh)
-
-Template to compose shell script to create Magento DB, run Magento installer to populate DB with tables
-and perform other post installation setup.
- 
- 
- 
-### ./work/cfg/bin/deploy/post_install.sql
-
-[Source](../work/cfg/bin/deploy/post_install.sql)
- 
-Template to compose SQL script with custom configuration to be applied after the Magento DB will be installed.
- 
- 
- 
-### ./work/cfg/templates.json
-
-[Source](../work/cfg/templates.json)
- 
-Configuration for templates processing (source templates paths, targets paths, composer events, etc).
- 
-
- 
- 
- 
-### ./work/templates.json.init
-
-[Source](../work/templates.json.init)
- 
-Stub for templates placeholders values.
- 
-
-
-## Documentation
-
-
-
-### ./docs
-
-Documentation folder (Markdown files and images).
-
-
-
-## Deployed development environment
-
-
-
-### ./work/htdocs
-
-Root folder for development Magento application. You should point your web-server to this location.
-Source code of the development instance of the module will be linked into this applicaiton. 
-
-
-
-### ./work/vendor
-
-Composer's packages, including development version of the module (`./work/vendor/flancer32/sample_mage2_module`).
+* [docs](../docs/): documentation root; 
+* [live](../live/): production/pilot environment root;
+    * [composer.json](../live/composer.json): PHP Composer descriptor for project;
+     * [templates.cfg.json](../live/templates.cfg.json): configuration for templates processing 
+     (source templates paths, targets paths, composer events, etc).
+     * [templates.vars.json.init](../live/templates.vars.json.init): source for templates variables; 
+* [src](../src/): module's sources;
+    * [cfg](../src/cfg/): initial templates for templates processing;
+    * [mage](../src/mage/): M2 module sources;
+* [test](../test/): modules's test sources and scripts;
+* [work](../work/): development environment root;
+    * [composer.json](../work/composer.json): PHP Composer descriptor for project;
+     * [templates.cfg.json](../work/templates.cfg.json): configuration for templates processing 
+     (source templates paths, targets paths, composer events, etc).
+     * [templates.vars.json.init](../work/templates.vars.json.init): source for templates variables;
+     * [templates.vars.json.travis](../work/templates.vars.json.travis): template variables for Travis CI;

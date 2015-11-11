@@ -26,12 +26,12 @@ before_install:
 # Go to working folder, copy templates.json for travis and start composer install process
   - cd work #  go to root folder for development environment
   - pwd # control current path ('LOCAL_ROOT' in templates.json)
-  - cp templates.json.travis templates.json # create configuration for Travis from template
+  - cp templates.vars.json.travis templates.vars.json # create configuration for Travis from template
   - composer self-update # update composer
   - composer install
 # Run post installation script (deploy Magento2 itself)
-  - cat ./bin/deploy/post_install.sh # control parameters in the installation script
-  - sh ./bin/deploy/post_install.sh # create initial DB, setup permissions, ...
+  - cat ./bin/post_install.sh # control parameters in the installation script
+  - sh ./bin/post_install.sh # create initial DB, setup permissions, ...
 
 script:
   - phpunit --configuration ./test/unit/phpunit.dist.xml # run project's unit tests

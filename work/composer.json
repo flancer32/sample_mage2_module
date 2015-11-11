@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "php": ">=5.5",
+    "php": "~5.5.0|~5.6.0|~7.0.0",
     "symfony/event-dispatcher": "~2.1",
     "magento/magento-composer-installer": "dev-patch-1",
     "praxigento/composer_plugin_templates": "^1.0",
@@ -102,8 +102,8 @@
     "magento-force": true,
     "auto-append-gitignore": false,
     "praxigento_templates_config": [
-      "./templates.json",
-      "./cfg/templates.json"
+      "./templates.cfg.json",
+      "./templates.vars.json"
     ]
   }
 }

@@ -2,4 +2,4 @@
 /htdocs/
 /composer.lock
 /vendor/
-/templates.json
+/templates.vars.json
