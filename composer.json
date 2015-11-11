@@ -14,14 +14,15 @@
     "flancer32/sample_magelib_demo": "dev-master"
   },
   "autoload": {
+    "files": ["src/mage/registration.php"],
     "psr-4": {
-      "Flancer32\\Sample\\": "src/"
+      "Flancer32\\Sample\\": "src/mage"
     }
   },
   "extra": {
     "map": [
       [
-        "src",
+        "src/mage",
         "Flancer32/Sample"
       ]
     ]

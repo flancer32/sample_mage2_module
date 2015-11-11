@@ -1,6 +1,6 @@
 {
   "name": "flancer32/sample_mage2_module_live",
-  "description": "Production environment for Magento 2 sample module.",
+  "description": "Production/pilot environment for Magento 2 sample module.",
   "type": "project",
   "homepage": "https://github.com/flancer32/sample_mage2_module",
   "license": "MIT",
@@ -11,11 +11,11 @@
     }
   ],
   "require": {
-    "php": ">=5.5",
+    "php": "~5.5.0|~5.6.0|~7.0.0",
     "symfony/event-dispatcher": "~2.1",
-    "magento/magento-composer-installer": "dev-patch-1",
+    "magento/magento-composer-installer": "dev-master",
     "praxigento/composer_plugin_templates": "^1.0",
-    "magento/product-community-edition": "1.0.0-beta",
+    "magento/product-community-edition": "2.0.0-rc",
     "flancer32/sample_mage2_module": "dev-master"
   },
   "autoload": {
@@ -34,10 +34,6 @@
     "magento": {
       "type": "composer",
       "url": "http://packages.magento.com/"
-    },
-    "flancer64/magento-composer-installer": {
-      "type": "vcs",
-      "url": "https://github.com/flancer64/magento-composer-installer"
     },
     "flancer32/sample_magelib_demo": {
       "type": "vcs",
@@ -66,8 +62,8 @@
     "magento-force": true,
     "auto-append-gitignore": false,
     "praxigento_templates_config": [
-      "./templates.json",
-      "./cfg/templates.json"
+      "./templates.cfg.json",
+      "./templates.vars.json"
     ]
   }
 }
