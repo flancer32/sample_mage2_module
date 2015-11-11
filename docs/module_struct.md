@@ -6,17 +6,21 @@ Module contains development instance of the Magento v2 application with module's
 this development instance.
 
 
-* [docs](../docs/): documentation root; 
-* [live](../live/): production/pilot environment root;
+* [docs/](../docs/): documentation root; 
+* [live/](../live/): production/pilot environment root;
     * [composer.json](../live/composer.json): PHP Composer descriptor for project;
      * [templates.cfg.json](../live/templates.cfg.json): configuration for templates processing 
      (source templates paths, targets paths, composer events, etc).
      * [templates.vars.json.init](../live/templates.vars.json.init): source for templates variables; 
-* [src](../src/): module's sources;
-    * [cfg](../src/cfg/): initial templates for templates processing;
-    * [mage](../src/mage/): M2 module sources;
-* [test](../test/): modules's test sources and scripts;
-* [work](../work/): development environment root;
+* [src/](../src/): module's sources;
+    * [cfg/](../src/cfg/): initial templates for templates processing;
+    * [mage/](../src/mage/): M2 module sources;
+* [test/](../test/): modules's test sources and scripts;
+* [work/](../work/): development environment root;
+    * [test/](../work/test/): development tests;
+        * [functional/](../work/test/functional/): PHPUnit configuration to launch functional tests (use real M2 App objects);
+        * [fw/](../work/test/fw/): framework scripts for functional tests;
+        * [unit/](../work/test/unit/): PHPUnit configuration to launch unit tests (use mocks);
     * [composer.json](../work/composer.json): PHP Composer descriptor for project;
      * [templates.cfg.json](../work/templates.cfg.json): configuration for templates processing 
      (source templates paths, targets paths, composer events, etc).
