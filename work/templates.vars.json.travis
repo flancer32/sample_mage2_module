@@ -13,7 +13,7 @@
     "CFG_BACKEND_FRONTNAME": "admin",
     "CFG_DB_HOST": "localhost",
     "CFG_DB_NAME": "mage2",
-    "CFG_DB_USER": "travis",
+    "CFG_DB_USER": "root",
     "CFG_DB_PASSWORD": "skip_password",
     "CFG_LANGUAGE": "en_US",
     "CFG_CURRENCY": "USD",
