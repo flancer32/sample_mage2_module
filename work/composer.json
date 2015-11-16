@@ -89,7 +89,7 @@
       "mkdir -p htdocs"
     ],
     "post-install-cmd": [
-      "# To complete installation launch 'sh ./bin/deploy/post_install.sh'"
+      "# To complete installation launch 'sh ./bin/post_install.sh'"
     ]
   },
   "extra": {
