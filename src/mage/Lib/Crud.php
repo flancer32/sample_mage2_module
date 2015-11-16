@@ -10,6 +10,15 @@ namespace Flancer32\Sample\Lib;
 use Flancer32\Lib\Entity\Bonus\Type as BonusType;
 
 class Crud {
+    /** @var \Flancer32\Lib\Service\Customer\Call() */
+    private $_call;
+
+    /**
+     * Crud constructor.
+     */
+    public function __construct(\Flancer32\Lib\Service\Customer\Call $call) {
+        $this->_call = $call;
+    }
 
     /**
      * Call to common library method to perform low-level DB operations (Create, Read, Update, Delete).
@@ -18,25 +27,23 @@ class Crud {
      */
     public function doDbOperations() {
         $result = false;
-        /** @var  $call \Flancer32\Lib\Service\Customer\Call */
-        $call = new \Flancer32\Lib\Service\Customer\Call();
         $typeValue = 'personal';
         $typeNote = 'Personal Bonus';
         $typeNoteNew = 'Personal Bonus New';
         /* insert one record */
-        $cols = array(
+        $cols = [
             BonusType::ATTR_VALUE => $typeValue,
             BonusType::ATTR_NOTE  => $typeNote
-        );
-        $id = $call->dbInsert($cols);
+        ];
+        $id = $this->_call->dbInsert($cols);
         /* select one record by id */
-        $record = $call->dbSelect($id);
-        if($record[ BonusType::ATTR_VALUE ] == $typeValue) {
+        $record = $this->_call->dbSelect($id);
+        if($record[BonusType::ATTR_VALUE] == $typeValue) {
             /* update one record */
-            $updated = $call->dbUpdate($id, array( BonusType::ATTR_NOTE => $typeNoteNew ));
+            $updated = $this->_call->dbUpdate($id, [ BonusType::ATTR_NOTE => $typeNoteNew ]);
             if($updated > 0) {
                 /* delete one record */
-                $deleted = $call->dbDelete($id);
+                $deleted = $this->_call->dbDelete($id);
                 if($deleted) {
                     $result = true;
                 }
