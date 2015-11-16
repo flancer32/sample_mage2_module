@@ -15,7 +15,7 @@
     "symfony/event-dispatcher": "~2.1",
     "magento/magento-composer-installer": "dev-master",
     "praxigento/composer_plugin_templates": "^1.0",
-    "magento/product-community-edition": "2.0.0-rc",
+    "magento/product-community-edition": "2.0.0-rc2",
     "flancer32/sample_mage2_module": "dev-master"
   },
   "autoload": {
@@ -53,7 +53,7 @@
       "mkdir -p htdocs"
     ],
     "post-install-cmd": [
-      "# To complete installation launch 'sh ./bin/deploy/post_install.sh'"
+      "# To complete installation launch 'sh ./bin/post_install.sh'"
     ]
   },
   "extra": {
