@@ -15,7 +15,7 @@
     "symfony/event-dispatcher": "~2.1",
     "magento/magento-composer-installer": "dev-master",
     "praxigento/composer_plugin_templates": "^1.0",
-    "magento/product-community-edition": "2.0.0-rc2",
+    "magento/product-community-edition": "2.0.0",
     "flancer32/sample_mage2_module": "dev-master"
   },
   "autoload": {
