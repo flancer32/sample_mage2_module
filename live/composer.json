@@ -11,8 +11,12 @@
     }
   ],
   "require": {
-    "magento-hackathon/magento-composer-installer": "dev-master",
-    "magento/product-community-edition": "2.0.0"
+    "php": "~5.5.0|~5.6.0|~7.0.0",
+    "symfony/event-dispatcher": "~2.1",
+    "magento/magento-composer-installer": "dev-master",
+    "praxigento/composer_plugin_templates": "^1.0",
+    "magento/product-community-edition": "2.0.0-rc2",
+    "flancer32/sample_mage2_module": "dev-master"
   },
   "autoload": {
     "psr-4": {
@@ -46,7 +50,7 @@
   "scripts": {
     "pre-install-cmd": [
       "# Create root directory for the development Magento instance.",
-      "mkdir -p htdocs"
+      "mkdir -p htdocs/app/etc/"
     ],
     "post-install-cmd": [
       "# To complete installation launch 'sh ./bin/post_install.sh'"
