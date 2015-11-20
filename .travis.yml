@@ -31,7 +31,7 @@ before_install:
 script:
   - phpunit --configuration ./test/unit/phpunit.dist.xml
   - phpunit --configuration ./test/functional/phpunit.dist.xml
-  - phpunit --configuration ./test/integration/phpunit.dist.xml
+#  - phpunit --configuration ./test/integration/phpunit.dist.xml
 #  - phpunit --configuration ./dev/tests/unit/phpunit.xml.dist # run Magento 2 unit tests
 
 notifications:
