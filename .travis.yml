@@ -19,10 +19,10 @@ before_install:
 # (http://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings)
 #  - composer config -g github-oauth.github.com $GITHUB_OAUTH_TOKEN
 # Deploy Magento 2 application
+  - cp templates.vars.json.travis ../templates.vars.work.json # create configuration for Travis from template
 # Go to working folder, copy templates.json for travis and start composer install process
   - cd work #  go to root folder for development environment
   - pwd # control current path ('LOCAL_ROOT' in templates.json)
-  - cp templates.json.travis ../templates.vars.work.json # create configuration for Travis from template
   - composer install
 # Run post installation script (deploy Magento2 itself)
   - cat ./bin/post_install.sh # control parameters in the installation script
