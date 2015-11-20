@@ -1,7 +1,7 @@
 {
   "vars": {
     "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module/work",
-    "DEPLOYMENT_TYPE": "travis|manual",
+    "DEPLOYMENT_TYPE": "live|pilot|test|development",
     "LOCAL_OWNER": "magento2",
     "LOCAL_GROUP": "www-data",
     "CFG_ADMIN_FIRSTNAME": "Store",

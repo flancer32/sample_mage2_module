@@ -14,12 +14,12 @@ Clone sample module repo from github and go to production environment root folde
 Create JSON configuration for your development instance 
 (DB parameters, access parameters, [etc](http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento)):
 
-    $ cp templates.json.init templates.json
-    $ nano templates.json    
+    $ cp ../templates.json.init ../templates.vars.live.json
+    $ nano ../templates.vars.live.json
     {
       "vars": {
         "LOCAL_ROOT": "/home/magento/instance/sample_mage2_module/live",
-        "DEPLOYMENT_TYPE": "manual",
+        "DEPLOYMENT_TYPE": "live",
         "LOCAL_OWNER": "magento2",
         "LOCAL_GROUP": "www-data",
         "CFG_ADMIN_FIRSTNAME": "Store",
@@ -51,7 +51,7 @@ Create JSON configuration for your development instance
 
 ## Additional configuration
 
-Shell script `./work/bin/post_install.sh` is created from `./src/cfg/bin/post_install.work.sh` template on
+Shell script `./live/bin/post_install.sh` is created from `./cfg/bin/post_install.work.sh` template on
 _post-install-cmd_ and _post-status-cmd_ events (see [praxigento/composer_plugin_templates](https://github.com/praxigento/composer_plugin_templates)).
 Configuration parameters for placeholders are taken from `templates.vars.json`:
 
@@ -61,16 +61,16 @@ Configuration parameters for placeholders are taken from `templates.vars.json`:
 
 ## Setup web server
 
-Point your web-server to folder `$LOCAL_ROOT/work/htdocs`. This is sample for the Apache2 web server:
+Point your web-server to folder `$LOCAL_ROOT/work`. This is sample for the Apache2 web server:
 
     <VirtualHost *:80>
-      DocumentRoot /home/magento/instance/sample_mage2_module/work/htdocs/
+      DocumentRoot /home/magento/instance/sample_mage2_module/work/
       DirectoryIndex index.php
     
       ServerName mage2.local.host.com
       ServerAdmin support@local.host.com
     
-      <Directory /home/magento/instance/sample_mage2_module/work/htdocs>
+      <Directory /home/magento/instance/sample_mage2_module/work>
         Options -Indexes +FollowSymLinks +MultiViews
         Require all granted
         AllowOverride All
