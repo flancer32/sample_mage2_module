@@ -12,8 +12,8 @@ Stub for Magento 2 module with development environment.
 
 ## Installation
 
-* [Install development environment](./docs/install_work.md)
-* [Install live instance](./docs/install_live.md)
+* [Install development environment](./docs/deploy/work.md)
+* [Install live instance](./docs/deploy/live.md)
 
 
 ## Docs

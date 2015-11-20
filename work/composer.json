@@ -1,6 +1,6 @@
 {
   "name": "flancer32/sample_mage2_module_work",
-  "description": "Development environment for Magento 2 sample module.",
+  "description": "Development/test environment for Magento 2 sample module.",
   "type": "project",
   "homepage": "https://github.com/flancer32/sample_mage2_module",
   "license": "MIT",
@@ -12,47 +12,21 @@
   ],
   "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0",
-    "symfony/event-dispatcher": "~2.1",
-    "magento/magento-composer-installer": "dev-patch-1",
     "praxigento/composer_plugin_templates": "^1.0",
-    "magento/product-community-edition": "1.0.0-beta",
+    "magento/magento-composer-installer": "^0.1",
+    "magento/product-community-edition": "2.0.0",
     "flancer32/sample_mage2_module": "dev-master"
   },
   "require-dev": {
-    "phpunit/phpunit": "4.1.0",
-    "squizlabs/php_codesniffer": "1.5.3",
-    "phpmd/phpmd": "@stable",
-    "pdepend/pdepend": "2.0.6",
-    "lib-libxml": "*",
-    "ext-ctype": "*",
-    "ext-gd": "*",
-    "ext-spl": "*",
-    "ext-dom": "*",
-    "ext-simplexml": "*",
-    "ext-mcrypt": "*",
-    "ext-hash": "*",
-    "ext-curl": "*",
-    "ext-iconv": "*",
-    "ext-intl": "*",
-    "ext-xsl": "*",
-    "ext-mbstring": "*",
-    "sjparkinson/static-review": "~4.1",
-    "fabpot/php-cs-fixer": "~1.2",
-    "lusitanian/oauth": "~0.3"
+    "phpunit/phpunit": "4.1.0"
   },
   "autoload": {
     "psr-4": {
-      "Magento\\Framework\\": "htdocs/lib/internal/Magento/Framework/",
-      "Magento\\Setup\\": "htdocs/setup/src/Magento/Setup/"
+      "Magento\\Setup\\": "setup/src/Magento/Setup/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Magento\\Sniffs\\": "htdocs/dev/tests/static/framework/Magento/Sniffs/",
-      "Magento\\Tools\\": "htdocs/dev/tools/Magento/Tools/",
-      "Magento\\Tools\\Sanity\\": "htdocs/dev/build/publication/sanity/Magento/Tools/Sanity/",
-      "Magento\\TestFramework\\Inspection\\": "htdocs/dev/tests/static/framework/Magento/TestFramework/Inspection/",
-      "Magento\\TestFramework\\Utility\\": "htdocs/dev/tests/static/framework/Magento/TestFramework/Utility/",
       "Flancer32\\Sample\\Test\\": "test/fw/"
     }
   },
@@ -67,10 +41,6 @@
       "type": "composer",
       "url": "http://packages.magento.com/"
     },
-    "flancer64/magento-composer-installer": {
-      "type": "vcs",
-      "url": "https://github.com/flancer64/magento-composer-installer"
-    },
     "flancer32/sample_magelib_demo": {
       "type": "vcs",
       "url": "https://github.com/flancer32/sample_magelib_demo"
@@ -84,26 +54,19 @@
     "use-include-path": true
   },
   "scripts": {
-    "pre-install-cmd": [
-      "# Create root directory for the development Magento instance.",
-      "mkdir -p htdocs"
-    ],
     "post-install-cmd": [
-      "# To complete installation launch 'sh ./bin/post_install.sh'"
+      "# To complete installation launch 'sh ./bin/post_install.sh'",
+      "# To clean up Magento files launch 'sh ./bin/mage_clean.sh'"
     ]
   },
   "extra": {
-    "magento-root-dir": "htdocs",
+    "magento-root-dir": ".",
     "magento-deploystrategy": "copy",
-    "magento-deploystrategy-overwrite": {
-      "flancer32/sample_magelib_demo": "symlink",
-      "flancer32/sample_mage2_module": "symlink"
-    },
     "magento-force": true,
     "auto-append-gitignore": false,
     "praxigento_templates_config": [
       "./templates.cfg.json",
-      "./templates.vars.json"
+      "../templates.vars.work.json"
     ]
   }
 }

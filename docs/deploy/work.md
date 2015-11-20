@@ -107,6 +107,6 @@ Commit changes from `./work/vendor/flancer32/sample_mage2_module/src` to git:
 
 
 
-[symlink_from]: ./img/symlink_from.png
-[symlink_to]: ./img/symlink_to.png
-[git_commit]: ./img/git_commit.png
+[symlink_from]: ../img/symlink_from.png
+[symlink_to]: ../img/symlink_to.png
+[git_commit]: ../img/git_commit.png

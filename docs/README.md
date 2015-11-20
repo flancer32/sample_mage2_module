@@ -4,8 +4,8 @@
 
 ## Install applications
 
-* [Install development environment](./install_work.md)
-* [Install live instance](./install_live.md)
+* [Install development environment](./deploy/work.md)
+* [Install live instance](./deploy/live.md)
 
 
 
