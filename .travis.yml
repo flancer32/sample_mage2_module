@@ -10,12 +10,19 @@ before_install:
   - sudo apt-get install phpunit
   - sudo apt-get install mysql-client-core-5.6 mysql-client-5.6 mysql-server-5.6
   - sudo php -r "readfile('https://getcomposer.org/installer');" | sudo php -- --install-dir=/usr/local/bin --filename=composer
+  - sudo apt-get remove php5-xdebug # to prevent composer warning See https://getcomposer.org/xdebug
+# Display versions for tools
+  - php --version
+  - composer --version
+  - git --version
+# Setup composer to use Github OAuth Token from Travis Environment Variable
+# (http://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings)
+#  - composer config -g github-oauth.github.com $GITHUB_OAUTH_TOKEN
 # Deploy Magento 2 application
 # Go to working folder, copy templates.json for travis and start composer install process
   - cd work #  go to root folder for development environment
   - pwd # control current path ('LOCAL_ROOT' in templates.json)
-  - cp templates.vars.json.travis templates.vars.json # create configuration for Travis from template
-#  - composer self-update # update composer
+  - cp templates.json.travis ../templates.vars.work.json # create configuration for Travis from template
   - composer install
 # Run post installation script (deploy Magento2 itself)
   - cat ./bin/post_install.sh # control parameters in the installation script
@@ -24,11 +31,12 @@ before_install:
 script:
   - phpunit --configuration ./test/unit/phpunit.dist.xml
   - phpunit --configuration ./test/functional/phpunit.dist.xml
-#  - phpunit --configuration ./htdocs/dev/tests/unit/phpunit.xml.dist # run Magento 2 unit tests
+  - phpunit --configuration ./test/integration/phpunit.dist.xml
+#  - phpunit --configuration ./dev/tests/unit/phpunit.xml.dist # run Magento 2 unit tests
 
 notifications:
   email:
     recipients:
-      - alex@flancer64.com
+      - flancer64@gmail.com
     on_success: change # [always|never|change], default: change
     on_failure: change # [always|never|change], default: change

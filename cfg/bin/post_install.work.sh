@@ -7,8 +7,8 @@
 # type of the deployment (skip some steps when app is deployed in TRAVIS CI, $DEPLOYMENT_TYPE='test')
 DEPLOYMENT_TYPE=${DEPLOYMENT_TYPE}
 # local specific environment
-LOCAL_ROOT=${LOCAL_ROOT}
-MAGE_ROOT=$LOCAL_ROOT/htdocs
+LOCAL_ROOT=${LOCAL_ROOT}    # root folder for the deployed instance
+MAGE_ROOT=$LOCAL_ROOT       # root folder for Magento app (in common case can be other than LOCAL_ROOT)
 # The owner of the Magento file system:
 #   * Must have full control (read/write/execute) of all files and directories.
 #   * Must not be the web server user; it should be a different user.

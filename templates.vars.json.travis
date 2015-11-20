@@ -1,7 +1,7 @@
 {
   "vars": {
     "LOCAL_ROOT": "/home/travis/build/flancer32/sample_mage2_module/work",
-    "DEPLOYMENT_TYPE": "travis",
+    "DEPLOYMENT_TYPE": "test",
     "LOCAL_OWNER": "travis",
     "LOCAL_GROUP": "www-data",
     "CFG_ADMIN_FIRSTNAME": "Store",
