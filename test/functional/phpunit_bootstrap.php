@@ -1,7 +1,7 @@
 <?php
 /* BP is defined in Magento's ./app/autoload.php */
 if(!defined('BP')) {
-    include_once(__DIR__ . '/../../../../../htdocs/app/bootstrap.php');
+    include_once(__DIR__ . '/../../../../../app/bootstrap.php');
     /**
      * Create test application that initializes DB connection and ends w/o exiting
      *  ($response->terminateOnSend = false).
