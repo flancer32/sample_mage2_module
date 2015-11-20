@@ -20,13 +20,5 @@
     "psr-4": {
       "Flancer32\\Sample\\": "src/"
     }
-  },
-  "extra": {
-    "map": [
-      [
-        "src/mage",
-        "Flancer32/Sample"
-      ]
-    ]
   }
 }
