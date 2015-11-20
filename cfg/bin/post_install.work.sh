@@ -4,7 +4,7 @@
 #   (all placeholders ${...} should be replaced by real values from ./work/template.json file)
 ##
 
-# type of the deployment (skip some steps when app is deployed in TRAVIS CI, $DEPLOYMENT_TYPE='travis')
+# type of the deployment (skip some steps when app is deployed in TRAVIS CI, $DEPLOYMENT_TYPE='test')
 DEPLOYMENT_TYPE=${DEPLOYMENT_TYPE}
 # local specific environment
 LOCAL_ROOT=${LOCAL_ROOT}
@@ -78,9 +78,10 @@ php $MAGE_ROOT/bin/magento setup:install  \
 --db-name="${CFG_DB_NAME}" \
 --db-user="${CFG_DB_USER}" \
 $MAGE_DBPASS \
+# 'MAGE_DBPASS' should be placed on the last position to prevent failures if this var is empty.
 
 
-if [ "$DEPLOYMENT_TYPE" = "travis" ]; then
+if [ "$DEPLOYMENT_TYPE" = "test" ]; then
     echo "Skip file system ownership and permissions setup."
 else
     ##
