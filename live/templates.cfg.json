@@ -1,5 +1,14 @@
 {
   "templates": {
+    "bin/mage_clean.sh": {
+      "src": "../src/cfg/bin/mage_clean.sh",
+      "dst": "bin/mage_clean.sh",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    },
     "bin/post_install.sh": {
       "src": "../src/cfg/bin/post_install.live.sh",
       "dst": "bin/post_install.sh",

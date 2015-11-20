@@ -20,8 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Magento\\Framework\\": "htdocs/lib/internal/Magento/Framework/",
-      "Magento\\Setup\\": "htdocs/setup/src/Magento/Setup/"
+      "Magento\\Setup\\": "setup/src/Magento/Setup/"
     }
   },
   "minimum-stability": "dev",
@@ -50,14 +49,15 @@
   "scripts": {
     "pre-install-cmd": [
       "# Create root directory for the development Magento instance.",
-      "mkdir -p htdocs/app/etc/"
+      "# mkdir -p htdocs/app/etc/"
     ],
     "post-install-cmd": [
-      "# To complete installation launch 'sh ./bin/post_install.sh'"
+      "# To complete installation launch 'sh ./bin/post_install.sh'",
+      "# To clean up Magento files launch 'sh ./bin/mage_clean.sh'"
     ]
   },
   "extra": {
-    "magento-root-dir": "htdocs",
+    "magento-root-dir": "./",
     "magento-deploystrategy": "copy",
     "magento-force": true,
     "auto-append-gitignore": false,

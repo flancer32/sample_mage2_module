@@ -7,6 +7,7 @@
 # local specific environment
 LOCAL_ROOT=${LOCAL_ROOT}
 MAGE_ROOT=$LOCAL_ROOT/htdocs
+MAGE_ROOT=$LOCAL_ROOT
 # The owner of the Magento file system:
 #   * Must have full control (read/write/execute) of all files and directories.
 #   * Must not be the web server user; it should be a different user.
