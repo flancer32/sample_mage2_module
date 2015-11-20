@@ -12,9 +12,8 @@
   ],
   "require": {
     "php": "~5.5.0|~5.6.0|~7.0.0",
-    "symfony/event-dispatcher": "~2.1",
-    "magento/magento-composer-installer": "dev-master",
     "praxigento/composer_plugin_templates": "^1.0",
+    "magento/magento-composer-installer": "^0.1",
     "magento/product-community-edition": "2.0.0",
     "flancer32/sample_mage2_module": "dev-master"
   },
@@ -47,13 +46,9 @@
     "use-include-path": true
   },
   "scripts": {
-    "pre-install-cmd": [
-      "# Create root directory for the development Magento instance.",
-      "# mkdir -p htdocs/app/etc/"
-    ],
     "post-install-cmd": [
       "# To complete installation launch 'sh ./bin/post_install.sh'",
-      "# To clean up Magento files launch 'sh ./bin/mage_clean.sh'"
+      "# To clean up Magento files launch 'sh ./bin/mage_clean.sh' (pilot only)"
     ]
   },
   "extra": {
@@ -63,7 +58,7 @@
     "auto-append-gitignore": false,
     "praxigento_templates_config": [
       "./templates.cfg.json",
-      "./templates.vars.json"
+      "../templates.vars.live.json"
     ]
   }
 }

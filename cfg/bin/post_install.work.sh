@@ -1,7 +1,7 @@
 #!/bin/sh
 ##
 #   Setup Magento instance after install with Composer.
-#   (all placeholders ${...} should be replaced by real values from ./work/template.json file)
+#   (all placeholders ${...} should be replaced by real values from template.vars.work.json' file)
 ##
 
 # type of the deployment (skip some steps when app is deployed in TRAVIS CI, $DEPLOYMENT_TYPE='test')
