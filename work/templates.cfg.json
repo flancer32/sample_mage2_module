@@ -1,8 +1,8 @@
 {
   "templates": {
-    "bin/mage_clean.sh": {
-      "src": "../cfg/bin/mage_clean.sh",
-      "dst": "bin/mage_clean.sh",
+    "bin/clean.sh": {
+      "src": "../cfg/bin/clean.sh",
+      "dst": "bin/clean.sh",
       "events": [
         "post-install-cmd",
         "post-status-cmd"

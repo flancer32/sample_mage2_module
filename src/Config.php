@@ -1,6 +1,6 @@
 <?php
 /**
- * Container for module's constants.
+ * Container for module's constants (hardcoded configuration).
  *
  * User: Alex Gusev <alex@flancer64.com>
  */
