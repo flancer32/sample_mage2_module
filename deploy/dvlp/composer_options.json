@@ -1,0 +1,8 @@
+{
+  "require": {},
+  "require-dev": {},
+  "autoload-dev": {},
+  "repositories": {},
+  "minimum-stability": "dev",
+  "extra": {}
+}

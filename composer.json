@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "flancer32/sample_magelib_demo": "dev-master"
+    "flancer32/php_data_object": "dev-master"
   },
   "autoload": {
     "files": [
@@ -19,6 +19,12 @@
     ],
     "psr-4": {
       "Flancer32\\Sample\\": "src/"
+    }
+  },
+  "repositories": {
+    "flancer32/php_data_object": {
+      "type": "vcs",
+      "url": "https://github.com/flancer32/php_data_object"
     }
   }
 }
