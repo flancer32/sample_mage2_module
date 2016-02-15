@@ -18,11 +18,10 @@ before_install:
   - git --version
 # Get auth keys: http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html
   - composer config -g http-basic.repo.magento.com 1615eced472560e3a0ff6063d9ad3850 9acf8f11cb3bdf2d4d0cf8a3c3b63f4a
-# Deploy Magento 2 application
-  - cp deploy_cfg.sh.travis deploy_cfg.sh # create configuration for Travis from template
-# Go to working folder, copy templates.json for travis and start composer install process
+# Copy Travis CI configuration from template and deploy Magento 2 application
   - pwd # control current path ('LOCAL_ROOT' in templates.json)
-  - deploy_dvlp.sh
+  - cp deploy_cfg.sh.travis deploy_cfg.sh # create configuration for Travis from template
+  - sh deploy_dvlp.sh
 
 #
 script:
