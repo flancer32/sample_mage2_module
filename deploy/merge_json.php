@@ -2,7 +2,7 @@
 /**
  * Merge 2 JSON files.
  */
-require_once(__DIR__ . '/../../work/vendor/autoload.php');
+require_once(__DIR__ . '/../work/vendor/autoload.php');
 
 if($argc >= 2) {
     /* parse arguments: $src $additions */

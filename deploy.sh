@@ -49,7 +49,7 @@ cd $M2_ROOT
 composer update
 
 
-if [ -z "$LOCAL_OWNER"] || [ -z "$LOCAL_GROUP" ]; then
+if [ -z "$LOCAL_OWNER" ] || [ -z "$LOCAL_GROUP" ]; then
     echo "Skip file system ownership and permissions setup."
 else
     ## http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html#instgde-prereq-compose-access
