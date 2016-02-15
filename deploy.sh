@@ -42,7 +42,7 @@ composer config repositories.flancer32/php_data_object vcs https://github.com/fl
 composer require flancer32/php_data_object:dev-master
 
 echo "\nPopulate original '$M2_ROOT/composer.json' with additional options from '$DIR/deploy/dvlp/composer_options.json'..."
-php $DIR/deploy/bin/merge_json.php $M2_ROOT/composer.json $DIR/deploy/dvlp/composer_options.json
+php $DIR/deploy/merge_json.php $M2_ROOT/composer.json $DIR/deploy/composer_options.json
 
 echo "\nUpdate M2 CE project with additional options..."
 cd $M2_ROOT
