@@ -4,11 +4,7 @@
 ## *************************************************************************
 
 ##
-#   Please setup working variables:
-##
-
-##
-#   Hardcoded configuration
+#   Working variables and hardcoded configuration.
 ##
 CUR_DIR="$PWD"
 DIR="$( cd "$( dirname "$0" )" && pwd )"
@@ -16,7 +12,7 @@ M2_ROOT=$DIR/work
 
 
 ##
-#   Load configuration variables.
+#   Load deployment configuration.
 ##
 . $DIR/deploy_cfg.sh
 

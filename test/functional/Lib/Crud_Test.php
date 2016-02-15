@@ -6,9 +6,6 @@
  */
 namespace Flancer32\Sample\Lib;
 
-/* include bootstrap to launch test class and it's methods individually */
-use Flancer32\Lib\Context;
-
 include_once(__DIR__ . '/../phpunit_bootstrap.php');
 
 class Crud_Test extends \PHPUnit_Framework_TestCase {

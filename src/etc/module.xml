@@ -1,5 +1,10 @@
 <config
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Module/etc/module.xsd">
-    <module name="Flancer32_Sample" schema_version="0.1.0" setup_version="0.1.0" active="true"></module>
+    <module name="Flancer32_Sample" setup_version="0.1.0">
+        <!-- Setup dependencies hierarchy -->
+        <!--<sequence>-->
+        <!--<module name="Vendor_Module"/>-->
+        <!--</sequence>-->
+    </module>
 </config>

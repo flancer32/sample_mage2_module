@@ -7,7 +7,7 @@
 
 namespace Flancer32\Sample\Setup;
 
-use Flancer32\Lib\Entity\Bonus\Type as BonusType;
+use Flancer32\Sample\Entity\Account;
 use Magento\Framework\DB\Ddl\Table as Ddl;
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -21,22 +21,24 @@ class InstallSchema implements InstallSchemaInterface {
     ) {
         $installer = $setup;
         $installer->startSetup();
-        $optId = array( 'identity' => true, 'primary' => true, 'nullable' => false, 'unsigned' => true );
+        $optId = [ 'identity' => true, 'primary' => true, 'nullable' => false, 'unsigned' => true ];
 
         $conn = $installer->getConnection();
-        $tblBonusType = $installer->getTable(BonusType::NAME);
+        $tbl = $installer->getTable(Account::ENTITY_NAME);
 
         /** ********************************
-         * Table for BonusType entity
+         * Table for Entity
          ******************************** */
-        $tbl = $conn->newTable($tblBonusType);
-        $tbl->addColumn(BonusType::ATTR_ID, Ddl::TYPE_INTEGER, null, $optId,
+        $tbl = $conn->newTable($tbl);
+        $tbl->addColumn(Account::ATTR_ID, Ddl::TYPE_INTEGER, null, $optId,
             'Instance ID.');
-        $tbl->addColumn(BonusType::ATTR_VALUE, Ddl::TYPE_TEXT, 255, array( 'nullable' => false ),
-            'Value for the bonus type.');
-        $tbl->addColumn(BonusType::ATTR_NOTE, Ddl::TYPE_TEXT, 255, array( 'nullable' => false ),
-            'Description of the type');
-        $tbl->setComment('Types of the available bonuses.');
+        $tbl->addColumn(Account::ATTR_CUST_ID, Ddl::TYPE_INTEGER, null, [ 'nullable' => false ],
+            'Customer ID.');
+        $tbl->addColumn(Account::ATTR_ASSET_TYPE_ID, Ddl::TYPE_INTEGER, null, [ 'nullable' => false ],
+            'Asset type ID.');
+        $tbl->addColumn(Account::ATTR_BALANCE, Ddl::TYPE_DECIMAL, '12,4', [ 'nullable' => false ],
+            'Balance value.');
+        $tbl->setComment('Customer balance for the asset.');
         $conn->createTable($tbl);
 
         $installer->endSetup();
