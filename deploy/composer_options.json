@@ -1,8 +1,15 @@
 {
-  "require": {},
+  "require": {
+    "flancer32/sample_mage2_module": "dev-master"
+  },
   "require-dev": {},
   "autoload-dev": {},
-  "repositories": {},
+  "repositories": {
+    "flancer32/sample_mage2_module": {
+      "type": "vcs",
+      "url": "https://github.com/flancer32/sample_mage2_module"
+    }
+  },
   "minimum-stability": "dev",
   "extra": {}
 }

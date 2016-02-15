@@ -7,14 +7,19 @@
 namespace Flancer32\Sample\Lib;
 
 class Call {
-    /** @var \Flancer32\Lib\Service\Customer\Call() */
-    private $_call;
+    /** @var \Magento\Framework\DB\Adapter\AdapterInterface */
+    private $_conn;
+    /** @var \Magento\Framework\App\ResourceConnection */
+    private $_resource;
 
     /**
      * Crud constructor.
      */
-    public function __construct(\Flancer32\Lib\Service\Customer\Call $call) {
-        $this->_call = $call;
+    public function __construct(
+        \Magento\Framework\App\ResourceConnection $resource
+    ) {
+        $this->_resource = $resource;
+        $this->_conn = $resource->getConnection();
     }
 
     public function doCall() {

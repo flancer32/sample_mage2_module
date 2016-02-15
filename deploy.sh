@@ -44,21 +44,6 @@ echo "\nUpdate M2 CE project with additional options..."
 cd $M2_ROOT
 composer update
 
-
-if [ -z "$LOCAL_OWNER" ] || [ -z "$LOCAL_GROUP" ]; then
-    echo "Skip file system ownership and permissions setup."
-else
-    ## http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html#instgde-prereq-compose-access
-    echo "Set file system ownership ($LOCAL_OWNER:$LOCAL_GROUP) and permissions..."
-    chown -R $LOCAL_OWNER:$LOCAL_GROUP $M2_ROOT
-    find $M2_ROOT -type d -exec chmod 770 {} \;
-    find $M2ROOT -type f -exec chmod 660 {} \;
-    chmod -R g+w $M2_ROOT/var
-    chmod -R g+w $M2_ROOT/pub
-    chmod u+x $M2_ROOT/bin/magento
-    chmod -R go-w $M2_ROOT/app/etc
-fi
-
 echo "\nDrop M2 database $DB_NAME..."
 if [ -z $DB_PASS ]; then
     MYSQL_PASS=""
@@ -95,6 +80,20 @@ php $M2_ROOT/bin/magento setup:install  \
 --db-user="$DB_USER" \
 $MAGE_DBPASS \
 # 'MAGE_DBPASS' should be placed on the last position to prevent failures if this var is empty.
+
+if [ -z "$LOCAL_OWNER" ] || [ -z "$LOCAL_GROUP" ]; then
+    echo "Skip file system ownership and permissions setup."
+else
+    ## http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html#instgde-prereq-compose-access
+    echo "Set file system ownership ($LOCAL_OWNER:$LOCAL_GROUP) and permissions..."
+    chown -R $LOCAL_OWNER:$LOCAL_GROUP $M2_ROOT
+    find $M2_ROOT -type d -exec chmod 770 {} \;
+    find $M2ROOT -type f -exec chmod 660 {} \;
+    chmod -R g+w $M2_ROOT/var
+    chmod -R g+w $M2_ROOT/pub
+    chmod u+x $M2_ROOT/bin/magento
+    chmod -R go-w $M2_ROOT/app/etc
+fi
 
 # Return back
 cd $CUR_DIR
