@@ -85,7 +85,7 @@ if [ -z "$LOCAL_OWNER" ] || [ -z "$LOCAL_GROUP" ]; then
 else
     ## http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html#instgde-prereq-compose-access
     echo "Set file system ownership ($LOCAL_OWNER:$LOCAL_GROUP) and permissions..."
-    chown -R $LOCAL_OWNER:$LOCAL_GROUP $M2_ROOT
+    echo chown -R $LOCAL_OWNER:$LOCAL_GROUP $M2_ROOT
     find $M2_ROOT -type d -exec chmod 770 {} \;
     find $M2ROOT -type f -exec chmod 660 {} \;
     chmod -R g+w $M2_ROOT/var
