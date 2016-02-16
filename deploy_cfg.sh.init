@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# see http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento
 ADMIN_FIRSTNAME="Store"
 ADMIN_LASTNAME="Admin"
 ADMIN_EMAIL="admin@store.com"
@@ -18,5 +19,7 @@ USE_SECURE="0"
 USE_SECURE_ADMIN="0"
 ADMI_USE_SECURITY_KEY="0"
 SESSION_SAVE="db"
+
+# to setup filesystem permissions
 LOCAL_OWNER="owner"
 LOCAL_GROUP="www-data"
