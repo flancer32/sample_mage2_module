@@ -12,21 +12,26 @@ Stub for Magento 2 module with development environment.
 
 ## Installation
 
-* [Install development environment](./docs/deploy/work.md)
-* [Install live instance](./docs/deploy/live.md)
+    $ cp deploy_cfg.sh.init deploy_cfg.sh
+    $ nano deploy_cfg.sh    //edit configuration for deployment
+    $ sh deploy.sh
 
 
-## Docs
+## Tests
 
-[Additional documentation](./docs/README.md).
+    $ cd work/vendor
+    $ php ./bin/phpunit -c flancer32/sample_mage2_module/test/unit/phpunit.dist.xml
+    $ php ./bin/phpunit -c flancer32/sample_mage2_module/test/functional/phpunit.dist.xml
+
+## Travis CI
+
+[Last log](https://travis-ci.org/flancer32/sample_mage2_module/).
 
 
 ## Links
 
-* [Installing Magento 2 with Composer](http://magenticians.com/installing-magento-2-composer)
-* [Setup Wizard installation](http://devdocs.magento.com/guides/v2.0/install-gde/install/web/install-web.html)
-* [Set file system ownership and permissions](http://devdocs.magento.com/guides/v2.0/install-gde/install/file-system-perms.html)
-
-
+* [Installing Magento 2 (Integrators)](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html)
+* [Magento authentication keys](http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html)
+* [Travis CI: Defining Variables in Repository Settings](https://docs.travis-ci.com/user/environment-variables/#Defining-Variables-in-Repository-Settings)
 
 
