@@ -25,9 +25,9 @@ before_install:
 
 #
 script:
-  - php ./vendor/bin/phpunit -c vendor/flancer32/sample_mage2_module/test/unit/phpunit.dist.xml
-  - php ./vendor/bin/phpunit -c vendor/flancer32/sample_mage2_module/test/functional/phpunit.dist.xml
-#  - php ./vendor/bin/phpunit --configuration ./dev/tests/unit/phpunit.xml.dist # run Magento 2 unit tests
+  - php ./work/vendor/bin/phpunit -c work/vendor/flancer32/sample_mage2_module/test/unit/phpunit.dist.xml
+  - php ./work/vendor/bin/phpunit -c work/vendor/flancer32/sample_mage2_module/test/functional/phpunit.dist.xml
+#  - php ./work/vendor/bin/phpunit - ./work/dev/tests/unit/phpunit.xml.dist # run Magento 2 unit tests
 
 notifications:
   email:

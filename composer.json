@@ -10,21 +10,12 @@
       "email": "flancer64@gmail.com"
     }
   ],
-  "require": {
-    "flancer32/php_data_object": "dev-master"
-  },
   "autoload": {
     "files": [
       "src/registration.php"
     ],
     "psr-4": {
       "Flancer32\\Sample\\": "src/"
-    }
-  },
-  "repositories": {
-    "flancer32/php_data_object": {
-      "type": "vcs",
-      "url": "https://github.com/flancer32/php_data_object"
     }
   }
 }
