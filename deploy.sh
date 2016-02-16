@@ -33,8 +33,7 @@ cd $M2_ROOT
 echo "\nCreate M2 CE project in '$M2_ROOT' using 'composer install'..."
 composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition $M2_ROOT
 
-echo "\nAdd initial dependencies to M2 CE project."
-composer config repositories.flancer32/php_data_object vcs https://github.com/flancer32/php_data_object
+echo "\nAdd initial dependencies to M2 CE project..."
 composer require flancer32/php_data_object:dev-master
 
 echo "\nPopulate original '$M2_ROOT/composer.json' with additional options from '$DIR/deploy/dvlp/composer_options.json'..."
