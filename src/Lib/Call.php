@@ -6,8 +6,10 @@
  */
 namespace Flancer32\Sample\Lib;
 
+use Flancer32\Sample\Entity\Account;
+
 class Call {
-    /** @var \Magento\Framework\DB\Adapter\AdapterInterface */
+    /** @var \Magento\Framework\DB\Adapter\Pdo\Mysql */
     private $_conn;
     /** @var \Magento\Framework\App\ResourceConnection */
     private $_resource;
@@ -22,8 +24,15 @@ class Call {
         $this->_conn = $resource->getConnection();
     }
 
-    public function doCall() {
-        $result = $this->_call->operation(32);
+    public function doInsert() {
+        $tbl = $this->_resource->getTableName(Account::ENTITY_NAME);
+        $bind = [
+            Account::ATTR_CUST_ID       => 1,
+            Account::ATTR_ASSET_TYPE_ID => 2,
+            Account::ATTR_BALANCE       => 123.45
+        ];
+        $this->_conn->insert($tbl, $bind);
+        $result = $this->_conn->lastInsertId($tbl);
         return $result;
     }
 }

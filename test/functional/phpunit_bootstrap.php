@@ -9,7 +9,7 @@ if(!defined('BP')) {
     $params = $_SERVER;
     /** @var  $bootstrap \Magento\Framework\App\Bootstrap */
     $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $params);
-    /** @var  $app \Flancer32\Sample\Test\App */
-    $app = $bootstrap->createApplication('\Flancer32\Sample\Test\App');
+    /** @var  $app \Flancer32\Sample\Test\FuncTestApp */
+    $app = $bootstrap->createApplication('\Flancer32\Sample\Test\FuncTestApp');
     $bootstrap->run($app);
 }
