@@ -5,7 +5,7 @@
   "require-dev": {},
   "autoload-dev": {
     "psr-4": {
-      "Flancer32\\Sample\\Test\\": "vendor/flancer32/sample_mage2_module/test/fw"
+      "Flancer32\\Sample\\Test\\": "../dev/fw"
     }
   },
   "repositories": {},

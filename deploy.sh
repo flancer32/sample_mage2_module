@@ -8,19 +8,19 @@
 ##
 CUR_DIR="$PWD"
 DIR="$( cd "$( dirname "$0" )" && pwd )"
-M2_ROOT=$DIR/work
-
-
-##
 #   Load deployment configuration.
-##
 . $DIR/deploy_cfg.sh
-
+# Create shortcuts
+M2_ROOT=$DIR/work
+DHOME=$DIR/deploy
+COMPOSER_MAIN=$M2_ROOT/composer.json
+COMPOSER_UNSET=$DHOME/composer_unset.json
+COMPOSER_OPTS=$DHOME/composer_opts.json
 
 ##
-#   Processing
+#   Deployment.
 ##
-echo "\nClean up root folder ($M2_ROOT)..."
+echo "\nClean up application's root folder ($M2_ROOT)..."
 if [ -d "$M2_ROOT" ]
 then
     rm -fr $M2_ROOT
@@ -30,18 +30,23 @@ else
 fi
 cd $M2_ROOT
 
+
 echo "\nCreate M2 CE project in '$M2_ROOT' using 'composer install'..."
 composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition $M2_ROOT
+
 
 echo "\nAdd initial dependencies to M2 CE project..."
 composer require flancer32/php_data_object:dev-master
 
-echo "\nPopulate original '$M2_ROOT/composer.json' with additional options from '$DIR/deploy/dvlp/composer_options.json'..."
-php $DIR/deploy/merge_json.php $M2_ROOT/composer.json $DIR/deploy/composer_options.json
+
+echo "\nFilter original '$COMPOSER_MAIN' on '$COMPOSER_UNSET' set and populate with additional options from '$COMPOSER_OPTS'..."
+php $DIR/deploy/merge_json.php $COMPOSER_MAIN $COMPOSER_UNSET $COMPOSER_OPTS
+
 
 echo "\nUpdate M2 CE project with additional options..."
 cd $M2_ROOT
 composer update
+
 
 echo "\nDrop M2 database $DB_NAME..."
 if [ -z $DB_PASS ]; then
@@ -53,6 +58,7 @@ else
 fi
 mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" drop "$DB_NAME"
 mysqladmin -f -u"$DB_USER" $MYSQL_PASS -h"$DB_HOST" create "$DB_NAME"
+
 
 echo "\n(Re)install Magento using database '$DB_NAME' (connecting as '$DB_USER')."
 # Full list of the available options:
@@ -79,6 +85,7 @@ php $M2_ROOT/bin/magento setup:install  \
 --db-user="$DB_USER" \
 $MAGE_DBPASS \
 # 'MAGE_DBPASS' should be placed on the last position to prevent failures if this var is empty.
+
 
 if [ -z "$LOCAL_OWNER" ] || [ -z "$LOCAL_GROUP" ]; then
     echo "Skip file system ownership and permissions setup."
