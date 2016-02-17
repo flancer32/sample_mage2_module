@@ -1,6 +1,6 @@
 /.idea/
-/vendor/
-/work/
 /atlassian-ide-plugin.xml
 /composer.lock
 /deploy_cfg.sh
+/vendor/
+/work/
