@@ -56,11 +56,6 @@ Go to [Secure Keys](https://www.magentocommerce.com/magento-connect/customerdata
 
 
 
-### Notes
-
-There are folders that Magento 2 creates
-
-
 ## Tests
 
     $ cd work/vendor
