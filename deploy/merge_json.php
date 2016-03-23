@@ -6,8 +6,6 @@
 /* include autoload to use composer's modules in this utility */
 require_once(__DIR__ . '/../work/vendor/autoload.php');
 
-use Flancer32\Lib\DataObject;
-
 if($argc >= 3) {
     /* parse arguments: $src $additions */
     $fileComposer = $argv[1];
@@ -17,13 +15,13 @@ if($argc >= 3) {
     $main = load_json($fileComposer);
     /* Load list to filter extra data and unset it */
     $unset = load_json($fileUnset);
-    foreach($unset->getData() as $item) {
-        $main->unsetData($item);
+    foreach($unset as $item) {
+        unset($main[$item]);
     }
     /* load additional options */
     $opts = load_json($fileOpts);
     /* merge both JSONs and save as source with suffix '.merged' */
-    $arrMerged = array_merge_recursive($main->getData(), $opts->getData());
+    $arrMerged = array_merge_recursive($main, $opts);
     $jsonMerged = json_encode($arrMerged, JSON_UNESCAPED_SLASHES);
     file_put_contents($fileComposer . '.merged.json', $jsonMerged);
     /* backup original source file and replace it by merged */
@@ -39,7 +37,6 @@ return;
 
 function load_json($file) {
     $jsonFile = file_get_contents($file);
-    $arr = json_decode($jsonFile, true);
-    $result = new DataObject($arr);
+    $result = json_decode($jsonFile, true);
     return $result;
 }

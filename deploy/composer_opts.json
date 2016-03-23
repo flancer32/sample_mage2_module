@@ -2,13 +2,10 @@
   "require": {
     "flancer32/sample_mage2_module": "dev-master"
   },
-  "require-dev": {},
   "autoload-dev": {
     "psr-4": {
       "Flancer32\\Sample\\Test\\": "../dev/fw"
     }
   },
-  "repositories": {},
-  "minimum-stability": "dev",
-  "extra": {}
+  "minimum-stability": "dev"
 }

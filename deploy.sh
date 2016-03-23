@@ -11,7 +11,7 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 #   Load deployment configuration.
 . $DIR/deploy_cfg.sh
 # Create shortcuts
-M2_ROOT=$DIR/work
+M2_ROOT=$DIR/work   # 'work' is used in the "deploy/merge_json.php" to include autoload function.
 DHOME=$DIR/deploy
 COMPOSER_MAIN=$M2_ROOT/composer.json
 COMPOSER_UNSET=$DHOME/composer_unset.json
@@ -35,11 +35,7 @@ echo "\nCreate M2 CE project in '$M2_ROOT' using 'composer install'..."
 composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition $M2_ROOT
 
 
-echo "\nAdd initial dependencies to M2 CE project..."
-composer require flancer32/php_data_object:dev-master
-
-
-echo "\nFilter original '$COMPOSER_MAIN' on '$COMPOSER_UNSET' set and populate with additional options from '$COMPOSER_OPTS'..."
+echo "\nFilter original \n\t'$COMPOSER_MAIN' on \n\t'$COMPOSER_UNSET' set and populate with additional options from \n\t'$COMPOSER_OPTS'..."
 php $DIR/deploy/merge_json.php $COMPOSER_MAIN $COMPOSER_UNSET $COMPOSER_OPTS
 
 
@@ -88,18 +84,26 @@ $MAGE_DBPASS \
 
 
 if [ -z "$LOCAL_OWNER" ] || [ -z "$LOCAL_GROUP" ]; then
-    echo "Skip file system ownership and permissions setup."
+    echo "\nSkip file system ownership and permissions setup."
 else
+    echo "Create working folders before permissions will be set."
+    mkdir -p $M2_ROOT/var/cache
+    mkdir -p $M2_ROOT/var/generation
     ## http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html#instgde-prereq-compose-access
-    echo "Set file system ownership ($LOCAL_OWNER:$LOCAL_GROUP) and permissions..."
+    echo "\nSet file system ownership ($LOCAL_OWNER:$LOCAL_GROUP) and permissions..."
     chown -R $LOCAL_OWNER:$LOCAL_GROUP $M2_ROOT
     find $M2_ROOT -type d -exec chmod 770 {} \;
-    find $M2ROOT -type f -exec chmod 660 {} \;
+    find $M2_ROOT -type f -exec chmod 660 {} \;
     chmod -R g+w $M2_ROOT/var
     chmod -R g+w $M2_ROOT/pub
     chmod u+x $M2_ROOT/bin/magento
     chmod -R go-w $M2_ROOT/app/etc
+    echo "\nSwitch Magento 2 instance into 'developer' mode."
+    php $M2_ROOT/bin/magento deploy:mode:set developer
 fi
+
+echo "\nDeployment is done."
+echo "Go to $BASE_URL to check your Magento 2 instance."
 
 # Return back
 cd $CUR_DIR

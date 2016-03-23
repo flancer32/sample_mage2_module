@@ -12,9 +12,32 @@ Stub for Magento 2 module with development environment.
 
 ## Installation
 
+### Create local configuration
+
     $ cp deploy_cfg.sh.init deploy_cfg.sh
     $ nano deploy_cfg.sh    //edit configuration for deployment
+
+### Get credentials to authenticate on 'repo.magento.com'
+
+Go to [Secure Keys](https://www.magentocommerce.com/magento-connect/customerdata/secureKeys/list/) section and generate pair of keys to connect to Magento 2 repository.
+
+### Run deployment script
+
     $ sh deploy.sh
+    ...
+    Create M2 CE project in '/.../sample_mage2_module/work' using 'composer install'...
+        Authentication required (repo.magento.com):
+          Username: <Magento pub key>
+          Password: <Magento priv key>
+    ...
+    Switch Magento 2 instance into 'developer' mode.
+    Enabled developer mode.
+
+    Deployment is done.
+    Go to http://.../ to check your Magento 2 instance.
+
+
+
 
 
 ## Tests
