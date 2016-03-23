@@ -24,20 +24,41 @@ Go to [Secure Keys](https://www.magentocommerce.com/magento-connect/customerdata
 ### Run deployment script
 
     $ sh deploy.sh
-    ...
-    Create M2 CE project in '/.../sample_mage2_module/work' using 'composer install'...
-        Authentication required (repo.magento.com):
-          Username: <Magento pub key>
-          Password: <Magento priv key>
-    ...
-    Switch Magento 2 instance into 'developer' mode.
-    Enabled developer mode.
 
-    Deployment is done.
-    Go to http://.../ to check your Magento 2 instance.
+	Clean up application's root folder (/.../sample_mage2_module/work)...
+
+	Create M2 CE project in '/.../sample_mage2_module/work' using 'composer install'...
+		Authentication required (repo.magento.com):    // NOTE: on the first iteration only if you will save credentials.
+		  Username: <Magento pub key>
+		  Password: <Magento priv key>
+	...
+	Filter original    // NOTE: unset unnecessary nodes and merge Magento's "composer.json" with your own options.
+			'/.../sample_DB_NAME_module/work/composer.json' on
+			'/.../sample_DB_NAME_module/deploy/composer_unset.json' set and populate with additional options from
+			'/.../sample_DB_NAME_module/deploy/composer_opts.json'...
+	...
+	Update M2 CE project with additional options...
+	...
+	Drop M2 database DB_NAME...
+	Database "DB_NAME" dropped
+
+	(Re)install Magento using database 'DB_NAME' (connecting as 'USER_NAME').
+	...
+	Create working folders before permissions will be set.
+
+	Switch Magento 2 instance into 'developer' mode.
+	Enabled developer mode.
+
+	Set file system ownership (OWNER:GROUP) and permissions...
+
+	Deployment is done.
+	Go to http://.../ to check your Magento 2 instance.
 
 
 
+### Notes
+
+There are folders that Magento 2 creates
 
 
 ## Tests

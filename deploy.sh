@@ -86,9 +86,11 @@ $MAGE_DBPASS \
 if [ -z "$LOCAL_OWNER" ] || [ -z "$LOCAL_GROUP" ]; then
     echo "\nSkip file system ownership and permissions setup."
 else
-    echo "Create working folders before permissions will be set."
+    echo "\nCreate working folders before permissions will be set."
     mkdir -p $M2_ROOT/var/cache
     mkdir -p $M2_ROOT/var/generation
+    echo "\nSwitch Magento 2 instance into 'developer' mode."
+    php $M2_ROOT/bin/magento deploy:mode:set developer
     ## http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html#instgde-prereq-compose-access
     echo "\nSet file system ownership ($LOCAL_OWNER:$LOCAL_GROUP) and permissions..."
     chown -R $LOCAL_OWNER:$LOCAL_GROUP $M2_ROOT
@@ -98,8 +100,6 @@ else
     chmod -R g+w $M2_ROOT/pub
     chmod u+x $M2_ROOT/bin/magento
     chmod -R go-w $M2_ROOT/app/etc
-    echo "\nSwitch Magento 2 instance into 'developer' mode."
-    php $M2_ROOT/bin/magento deploy:mode:set developer
 fi
 
 echo "\nDeployment is done."
