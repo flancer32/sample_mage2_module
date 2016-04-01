@@ -35,7 +35,10 @@ echo "\nCreate M2 CE project in '$M2_ROOT' using 'composer install'..."
 composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition $M2_ROOT
 
 
-echo "\nFilter original \n\t'$COMPOSER_MAIN' on \n\t'$COMPOSER_UNSET' set and populate with additional options from \n\t'$COMPOSER_OPTS'..."
+echo "Filter original"
+echo "    '$COMPOSER_MAIN' on"
+echo "    '$COMPOSER_UNSET' add"
+echo "    '$COMPOSER_OPTS'..."
 php $DIR/deploy/merge_json.php $COMPOSER_MAIN $COMPOSER_UNSET $COMPOSER_OPTS
 
 
@@ -89,8 +92,11 @@ else
     echo "\nCreate working folders before permissions will be set."
     mkdir -p $M2_ROOT/var/cache
     mkdir -p $M2_ROOT/var/generation
-    echo "\nSwitch Magento 2 instance into 'developer' mode."
+    echo "\nSwitch Magento 2 instance into 'developer' mode, reindex data, run cron jobs and disable cache."
     php $M2_ROOT/bin/magento deploy:mode:set developer
+    php $M2_ROOT/bin/magento indexer:reindex
+    php $M2_ROOT/bin/magento cron:run
+    php $M2_ROOT/bin/magento cache:disable
     ## http://devdocs.magento.com/guides/v2.0/install-gde/prereq/integrator_install.html#instgde-prereq-compose-access
     echo "\nSet file system ownership ($LOCAL_OWNER:$LOCAL_GROUP) and permissions..."
     chown -R $LOCAL_OWNER:$LOCAL_GROUP $M2_ROOT
