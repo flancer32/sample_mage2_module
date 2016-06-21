@@ -1,4 +1,14 @@
 #!/usr/bin/env bash
+
+# root folder for Magento instance
+DEPLOY_MODE=work
+
+# filesystem permissions
+LOCAL_OWNER="travis"
+LOCAL_GROUP="travis"
+
+# Magento 2 installation configuration
+# see http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento
 ADMIN_FIRSTNAME="Store"
 ADMIN_LASTNAME="Admin"
 ADMIN_EMAIL="admin@store.com"
