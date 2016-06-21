@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
+
+# root folder for Magento instance
+DEPLOY_MODE=work
+
+# filesystem permissions
+LOCAL_OWNER="owner"
+LOCAL_GROUP="www-data"
+
+# Magento 2 installation configuration
 # see http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento
 ADMIN_FIRSTNAME="Store"
 ADMIN_LASTNAME="Admin"
@@ -19,7 +28,3 @@ USE_SECURE="0"
 USE_SECURE_ADMIN="0"
 ADMI_USE_SECURITY_KEY="0"
 SESSION_SAVE="db"
-
-# to setup filesystem permissions
-LOCAL_OWNER="owner"
-LOCAL_GROUP="www-data"

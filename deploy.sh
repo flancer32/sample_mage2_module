@@ -11,7 +11,7 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 #   Load deployment configuration.
 . $DIR/deploy_cfg.sh
 # Create shortcuts
-M2_ROOT=$DIR/work   # 'work' is used in the "deploy/merge_json.php" to include autoload function.
+M2_ROOT=$DIR/$DEPLOY_MODE
 DHOME=$DIR/deploy
 COMPOSER_MAIN=$M2_ROOT/composer.json
 COMPOSER_UNSET=$DHOME/composer_unset.json
@@ -32,7 +32,7 @@ cd $M2_ROOT
 
 
 echo "\nCreate M2 CE project in '$M2_ROOT' using 'composer install'..."
-composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition $M2_ROOT
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.1.0-rc3 $M2_ROOT
 
 
 echo "Filter original"

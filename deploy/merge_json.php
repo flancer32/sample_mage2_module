@@ -3,8 +3,6 @@
  * Get one JSON file (arg #1), unset keys read from text file (arg. #2) and merge with other JSON file (arg. #3).
  * Backup first JSON and save result with the same name (as first JSON).
  */
-/* include autoload to use composer's modules in this utility */
-require_once(__DIR__ . '/../work/vendor/autoload.php');
 
 if($argc >= 3) {
     /* parse arguments: $src $additions */
