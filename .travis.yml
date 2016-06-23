@@ -1,6 +1,15 @@
-language: php
+dist: trusty # use Travis Trusty env (http://docs.travis-ci.com/user/ci-environment/)
+sudo: required
+language: php # PHP is not available in "mega" image, so we use "minimal" image and setup runtimes separately
 php:
   - '7.0'
+
+addons:
+  apt:
+    packages:
+    - mysql-server-5.6
+    - mysql-client-core-5.6
+    - mysql-client-5.6
 
 before_install:
 # Install execution environment (php, phpunit, mysql, composer)
@@ -10,9 +19,10 @@ before_install:
 #  - sudo apt-get install phpunit
 #  - sudo apt-get install mysql-client-core-5.6 mysql-client-5.6 mysql-server-5.6
 #  - sudo php -r "readfile('https://getcomposer.org/installer');" | sudo php -- --install-dir=/usr/local/bin --filename=composer
-#  - sudo apt-get remove php5-xdebug # to prevent composer warning See https://getcomposer.org/xdebug
+  - sudo apt-get remove php7-xdebug # to prevent composer warning See https://getcomposer.org/xdebug
 # Display versions for tools
   - php --version
+  - mysql --version
   - phpunit --version
   - composer --version
   - git --version
@@ -21,7 +31,7 @@ before_install:
 # Copy Travis CI configuration from template and deploy Magento 2 application
   - pwd # control current path ('LOCAL_ROOT' in templates.json)
   - cp deploy_cfg.sh.travis deploy_cfg.sh # create configuration for Travis from template
-  - sh deploy.sh
+#  - sh deploy.sh
 
 #
 script:
