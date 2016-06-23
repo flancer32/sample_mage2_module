@@ -20,7 +20,7 @@ before_install:
 #  - sudo apt-get install mysql-client-core-5.6 mysql-client-5.6 mysql-server-5.6
 #  - sudo php -r "readfile('https://getcomposer.org/installer');" | sudo php -- --install-dir=/usr/local/bin --filename=composer
 #  - sudo apt-get remove xdebug # to prevent composer warning See https://getcomposer.org/xdebug
-  - dpkg --get-selections | grep xdebug
+#  - dpkg --get-selections | grep xdebug
 
 # Display versions for tools
   - php --version
