@@ -1,6 +1,6 @@
 dist: trusty # use Travis Trusty env (http://docs.travis-ci.com/user/ci-environment/)
 sudo: required
-language: php # PHP is not available in "mega" image, so we use "minimal" image and setup runtimes separately
+language: php
 php:
   - '7.0'
 
@@ -14,7 +14,6 @@ addons:
 before_install:
 # Remove xdebug to speed up composer
   - phpenv config-rm xdebug.ini
-  - git --version
 # Get auth keys: http://devdocs.magento.com/guides/v2.0/install-gde/prereq/connect-auth.html
   - composer config -g http-basic.repo.magento.com $M2_KEY_PUB $M2_KEY_PRIV
 # Copy Travis CI configuration from template and deploy Magento 2 application
@@ -22,7 +21,6 @@ before_install:
   - cp deploy_cfg.sh.travis deploy_cfg.sh # create configuration for Travis from template
   - sh deploy.sh
 
-#
 script:
   - php ./work/vendor/bin/phpunit -c work/vendor/flancer32/sample_mage2_module/test/unit/phpunit.dist.xml
   - php ./work/vendor/bin/phpunit -c work/vendor/flancer32/sample_mage2_module/test/functional/phpunit.dist.xml

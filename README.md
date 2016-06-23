@@ -4,10 +4,7 @@ Stub for Magento 2 module with development environment.
 
 [![Build Status](https://travis-ci.org/flancer32/sample_mage2_module.svg)](https://travis-ci.org/flancer32/sample_mage2_module/)
 
-
-## Magento 1 Sample Module
-
-[flancer32/sample_mage1_module](https://github.com/flancer32/sample_mage1_module)
+Environment is deployed using PHP Composer (sources are downloaded from Magento repo), contains simple tests units and CI descriptor to run these tests on Travis-CI.
 
 
 ## Installation
