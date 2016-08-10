@@ -1,17 +1,9 @@
 <?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-
-    <!-- Samples. Is not used in the module. -->
-
-    <!--<preference for="Flancer32\Sample\InterfaceDefinition"-->
-    <!--type="Flancer32\Sample\ClassImplementation"/>-->
-
-    <!--<type name="Flancer32\Sample\ClassImplementation">-->
-    <!--<arguments>-->
-    <!--<argument name="conn" xsi:type="object">Magento\Framework\App\ResourceConnection\Proxy</argument>-->
-    <!--</arguments>-->
-    <!--</type>-->
+    <!-- Interceptor to get error with full-text search -->
+    <type name="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <plugin name="flancer32_sample_plugin" type="Flancer32\Sample\Plugin\Catalog\Model\ResourceModel\Product\CollectionFactory" sortOrder="100" disabled="false"/>
+    </type>
 
 </config>
