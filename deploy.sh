@@ -32,7 +32,7 @@ cd $M2_ROOT
 
 
 echo "\nCreate M2 CE project in '$M2_ROOT' using 'composer install'..."
-composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.1.0-rc3 $M2_ROOT
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.1.0 $M2_ROOT
 
 
 echo "Filter original"
