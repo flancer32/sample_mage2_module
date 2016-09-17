@@ -16,7 +16,7 @@ Environment is deployed using PHP Composer (sources are downloaded from Magento 
 
 ### Get credentials to authenticate on 'repo.magento.com'
 
-Go to [Secure Keys](https://www.magentocommerce.com/magento-connect/customerdata/secureKeys/list/) section (_My Account / Connect / Developer / Secure Keys_) and generate pair of keys to connect to Magento 2 repository.
+Go to your [Magento Connect](https://www.magentocommerce.com/magento-connect/customer/account/) account, section (_My Account / Connect / Developer / Secure Keys_) and generate pair of keys to connect to Magento 2 repository.
 
 ### Run deployment script
 
