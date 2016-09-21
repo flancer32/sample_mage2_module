@@ -18,6 +18,10 @@ Environment is deployed using PHP Composer (sources are downloaded from Magento 
 
 Go to your [Magento Connect](https://www.magentocommerce.com/magento-connect/customer/account/) account, section (_My Account / Connect / Developer / Secure Keys_) and generate pair of keys to connect to Magento 2 repository.
 
+### Setup environment
+
+[System requirements](http://devdocs.magento.com/guides/v2.0/install-gde/system-requirements.html)
+
 ### Run deployment script
 
     $ sh deploy.sh
