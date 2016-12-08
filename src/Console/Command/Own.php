@@ -14,7 +14,7 @@ class Own
     protected $cartManagement;
 
     public function __construct(
-        \Magento\Quote\Api\CartManagementInterface\Proxy $cartManagement
+        \Magento\Quote\Api\CartManagementInterface $cartManagement
     ) {
         parent::__construct('sample:command');
         $this->cartManagement = $cartManagement;
