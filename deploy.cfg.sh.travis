@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-# root folder for Magento instance
-DEPLOY_MODE=work
-
 # filesystem permissions
-LOCAL_OWNER="owner"
-LOCAL_GROUP="www-data"
+LOCAL_OWNER="travis"
+LOCAL_GROUP="travis"
 
 # Magento 2 installation configuration
 # see http://devdocs.magento.com/guides/v2.0/install-gde/install/cli/install-cli-install.html#instgde-install-cli-magento
@@ -13,13 +10,13 @@ ADMIN_FIRSTNAME="Store"
 ADMIN_LASTNAME="Admin"
 ADMIN_EMAIL="admin@store.com"
 ADMIN_USER="admin"
-ADMIN_PASSWORD="..."
-BASE_URL="http://mage2.host.org:8080/"
+ADMIN_PASSWORD="eUvE7Yid057Cqtq5CkA8"
+BASE_URL="http://sample.travis.flancer32.com/"
 BACKEND_FRONTNAME="admin"
 DB_HOST="localhost"
 DB_NAME="mage2"
-DB_USER="www"
-DB_PASS="..."
+DB_USER="root"
+DB_PASS=""
 LANGUAGE="en_US"
 CURRENCY="USD"
 TIMEZONE="UTC"
