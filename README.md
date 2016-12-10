@@ -4,19 +4,21 @@ Stub for Magento 2 module with development environment.
 
 [![Build Status](https://travis-ci.org/flancer32/sample_mage2_module.svg)](https://travis-ci.org/flancer32/sample_mage2_module/)
 
-Environment is deployed using PHP Composer (sources are downloaded from Magento repo), contains simple tests units and CI descriptor to run these tests on Travis-CI.
+Environment is deployed using PHP Composer (sources are downloaded from Magento repo), contains simple tests units
+and CI descriptor to run these tests on Travis-CI.
 
 
 ## Installation
 
 ### Create local configuration
 
-    $ cp deploy_cfg.sh.init deploy_cfg.sh
-    $ nano deploy_cfg.sh    //edit configuration for deployment
+    $ cp deploy.cfg.sh.init deploy.cfg.work.sh
+    $ nano deploy.cfg.work.sh    //edit configuration for deployment
 
 ### Get credentials to authenticate on 'repo.magento.com'
 
-Go to your [Magento Connect](https://www.magentocommerce.com/magento-connect/customer/account/) account, section (_My Account / Connect / Developer / Secure Keys_) and generate pair of keys to connect to Magento 2 repository.
+Go to your [Magento Connect](https://www.magentocommerce.com/magento-connect/customer/account/) account, 
+section (_My Account / Connect / Developer / Secure Keys_) and generate pair of keys to connect to Magento 2 repository.
 
 ### Setup environment
 
