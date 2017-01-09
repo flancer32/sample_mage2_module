@@ -117,6 +117,7 @@ then
     --admin-password="${ADMIN_PASSWORD}" \
     --base-url="${BASE_URL}" \
     --backend-frontname="${BACKEND_FRONTNAME}" \
+    --key="${SECURE_KEY}" \
     --language="${LANGUAGE}" \
     --currency="${CURRENCY}" \
     --timezone="${TIMEZONE}" \
