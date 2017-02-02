@@ -42,7 +42,7 @@ function unset_node(&$sourceArr, $node)
         foreach ($node as $key => $item) {
             if (isset($sourceArr[$key])) {
                 unset_node($sourceArr[$key], $item);
-            } elseif (isset($sourceArr[$item])) {
+            } elseif (!is_array($item) && isset($sourceArr[$item])) {
                 unset_node($sourceArr, $item);
             } else {
                 unset_node($sourceArr, $item);
